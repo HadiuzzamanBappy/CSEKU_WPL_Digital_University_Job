@@ -112,7 +112,7 @@ include_once COMMON.'class.common.inc';
 			<div class="form-group">
               	<label class="control-label col-sm-4" for="txtJobExperience">Job Experience(if needed):</label>
               	<div class="col-sm-6">	
-					<input type="number" name="txtJobExperience" class="form-control" placeholder="Enter between 1 - 10" min="1" max="10"/>
+					<input type="text" name="txtJobExperience" class="form-control" placeholder="Such as..2 years of Teaching"/>
 				</div>
 			</div>
 
@@ -122,14 +122,7 @@ include_once COMMON.'class.common.inc';
 					<input type="date" name="txtLastDateOfApplication" class="form-control" required/>
 				</div>
 			</div>
-
-<!-- 			<div class="form-group">
-              	<label class="control-label col-sm-4" for="txtfile">Upload a PDF file or image of Attested Details**:</label>
-              	<div class="col-sm-6">	
-					<input type="file" name="txtfile"/>
-				</div>
-			</div> -->
-
+			
 	        <div class="form-group">        
               	<div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" value="request" name="request">Post This Job</button>

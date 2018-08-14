@@ -21,7 +21,7 @@ span{
 	font-size: 25px;
 	font-weight: bold;
 	float: left;
-	text-shadow: -1px 11px 8px;
+	text-shadow: -1px 7px 13px;
 	padding-right: 10px;
 }
 .jms_Subtitle {
@@ -82,11 +82,14 @@ span{
 	padding: 2px 30px;
 	font-size: 17px;
 	border-radius: 7px;
-	box-shadow: 4px 6px 10px #757575;
 	position: absolute;
 	top: 72px;
 	right: 11px;
+	transition: 0.5s ease;
+	cursor: pointer;
 }
 .jms_submit:hover{
 	background-color: #459545;
+	color: white;
+	box-shadow: 4px 6px 10px #757575;
 }

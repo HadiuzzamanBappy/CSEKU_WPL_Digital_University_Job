@@ -359,8 +359,8 @@ class PageUtil{
     //job
     public static $JOB_POST='job_post.php'; 
     public static $JOB_LIST='job_list.php';  
-    public static $JOB_UPDATE='job_update.php';    
-   
+    public static $JOB_UPDATE='job_update.php';      
+
 }
 
 class RouteUtil{
@@ -630,6 +630,7 @@ class MiddlewareUtil{
          
          self::$s_Routes[PageUtil::$JOB_POST]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$JOB_LIST]   =  PageUtil::$LOGIN ;
+         self::$s_Routes[PageUtil::$JOB_UPDATE]   =  PageUtil::$LOGIN ;
    
    
     }

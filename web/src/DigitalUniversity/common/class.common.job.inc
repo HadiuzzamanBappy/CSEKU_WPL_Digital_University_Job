@@ -150,10 +150,11 @@ class Job{
     }
 }
 
-class applicant{
+class Applicant{
     private $_ID;
+    private $_applicantID;
     private $_JobID;
-    private $_CV;
+    private $_cvID;
     private $_SubmissionDate;
 
     public function setID ( $ID ) {
@@ -161,6 +162,14 @@ class applicant{
     }
 
     public function getID () {
+        return $this->_ID;
+    }
+
+    public function setapplicantID( $ID ) {
+        $this->_ID = $ID;
+    }
+
+    public function getapplicantID () {
         return $this->_ID;
     }
 
@@ -172,11 +181,11 @@ class applicant{
         return $this->_JobID;
     }
 
-    public function setCV ( $CV ) {
+    public function setcvID ( $CV ) {
         $this->_CV = $CV;
     }
 
-    public function getCV () {
+    public function getcvID () {
         return $this->_CV;
     }
 

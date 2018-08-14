@@ -50,7 +50,7 @@ include_once COMMON.'class.common.inc';
 					    <p class="jms_Location inline"><span> Job Location : </span><?php echo $Job->getLocation(); ?></p><br>
 
 					    <p class="jms_LastDateOfApplication inline"><span>Last Application Date : </span><?php echo $Job->getLastDateOfApplication(); ?></p>
-					    <button class="jms_submit inline">Apply</button>
+					    <a class="jms_submit inline" href="?apply=<?php echo $Job->getID(); ?>">Apply</a>
 					</div>
 				<?php
 				}
