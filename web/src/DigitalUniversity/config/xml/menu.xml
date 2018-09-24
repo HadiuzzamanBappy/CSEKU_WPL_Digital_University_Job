@@ -927,20 +927,38 @@
 						<Permission>JOB_D</Permission>
 					</Permissions>
 				</Menu>
+				<Menu>
+					<ParentMenu>Manage Job</ParentMenu>
+					<Title>See All Job Application</Title>
+					<Link>job_update.php</Link>
+					<Permissions>
+						<Permission>JOB_C</Permission>
+						<Permission>JOB_U</Permission>									
+						<Permission>JOB_D</Permission>
+					</Permissions>
+				</Menu>
+				<Menu>
+					<ParentMenu>Manage Job</ParentMenu>
+					<Title>My Job Application</Title>
+					<Link>job_update.php</Link>
+					<Permissions>
+						<Permission>JOB_R</Permission>
+					</Permissions>
+				</Menu>
 			<Menu>
 				<ParentMenu>Job</ParentMenu>
 				<Title>Manage My CV</Title>
 				<Permissions>
 					<Permission>JOB_C</Permission>
+					<Permission>JOB_R</Permission>
 					<Permission>JOB_U</Permission>									
 					<Permission>JOB_D</Permission>	
-					<Permission>JOB_R</Permission>
 				</Permissions>
 			</Menu>
 				<Menu>
 					<ParentMenu>Manage My CV</ParentMenu>
 					<Title>Create My CV</Title>
-					<Link>job_post.php</Link>
+					<Link>job_cv_create.php</Link>
 					<Permissions>
 						<Permission>JOB_R</Permission>
 					</Permissions>
@@ -948,7 +966,15 @@
 				<Menu>
 					<ParentMenu>Manage My CV</ParentMenu>
 					<Title>Update My CV</Title>
-					<Link>job_post.php</Link>
+					<Link>job_cv_update.php</Link>
+					<Permissions>
+						<Permission>JOB_R</Permission>
+					</Permissions>
+				</Menu>
+				<Menu>
+					<ParentMenu>Manage My CV</ParentMenu>
+					<Title>My CV</Title>
+					<Link>job_cv_show.php</Link>
 					<Permissions>
 						<Permission>JOB_R</Permission>
 					</Permissions>

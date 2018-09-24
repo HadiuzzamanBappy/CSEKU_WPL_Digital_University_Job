@@ -70,7 +70,7 @@ include_once $template_link.'menu.inc';
         <title>Digital University</title>
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
         <link rel="stylesheet" href="resources/css/style.css" type="text/css" />
-        <link rel="stylesheet" type="text/css" href="resources/css/jms_job_list.css">        
+        <link rel="stylesheet" type="text/css" href="resources/css/jms_job.css">      
         <script src="resources/js/jquery.min.js"></script>
         <script src="resources/js/bootstrap.min.js"></script>
         <script src="resources/js/myscript.js"></script>

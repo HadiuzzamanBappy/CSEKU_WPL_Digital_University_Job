@@ -359,7 +359,10 @@ class PageUtil{
     //job
     public static $JOB_POST='job_post.php'; 
     public static $JOB_LIST='job_list.php';  
-    public static $JOB_UPDATE='job_update.php';      
+    public static $JOB_UPDATE='job_update.php';
+    public static $JOB_CV_CREATE='job_cv_create.php';
+    public static $JOB_CV_SHOW='job_cv_show.php'; 
+    public static $JOB_CV_UPDATE='job_cv_update.php';         
 
 }
 
@@ -503,6 +506,9 @@ class RouteUtil{
          self::$s_Routes[PageUtil::$JOB_POST]  =   "modules/job/ui/view.job_post.inc";
          self::$s_Routes[PageUtil::$JOB_LIST]  =   "modules/job/ui/view.job_list.inc";
          self::$s_Routes[PageUtil::$JOB_UPDATE]  =   "modules/job/ui/view.job_update.inc";
+         self::$s_Routes[PageUtil::$JOB_CV_CREATE]  =   "modules/job/ui/view.job_cv_create.inc";
+         self::$s_Routes[PageUtil::$JOB_CV_SHOW]  =   "modules/job/ui/view.job_cv_show.inc";
+         self::$s_Routes[PageUtil::$JOB_CV_UPDATE]  =   "modules/job/ui/view.job_cv_update.inc";
       
     }
 
@@ -631,6 +637,9 @@ class MiddlewareUtil{
          self::$s_Routes[PageUtil::$JOB_POST]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$JOB_LIST]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$JOB_UPDATE]   =  PageUtil::$LOGIN ;
+         self::$s_Routes[PageUtil::$JOB_CV_CREATE]   =  PageUtil::$LOGIN ;
+         self::$s_Routes[PageUtil::$JOB_CV_SHOW]   =  PageUtil::$LOGIN ;
+         self::$s_Routes[PageUtil::$JOB_CV_UPDATE]   =  PageUtil::$LOGIN ;
    
    
     }

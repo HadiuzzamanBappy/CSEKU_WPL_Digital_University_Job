@@ -165,12 +165,12 @@ class Applicant{
         return $this->_ID;
     }
 
-    public function setapplicantID( $ID ) {
-        $this->_ID = $ID;
+    public function setapplicantID( $applicantID ) {
+        $this->_applicantID = $applicantID;
     }
 
     public function getapplicantID () {
-        return $this->_ID;
+        return $this->_applicantID;
     }
 
     public function setJobID ( $JobID ) {
@@ -181,12 +181,12 @@ class Applicant{
         return $this->_JobID;
     }
 
-    public function setcvID ( $CV ) {
-        $this->_CV = $CV;
+    public function setcvID ( $cvID ) {
+        $this->_cvID = $cvID;
     }
 
     public function getcvID () {
-        return $this->_CV;
+        return $this->_cvID;
     }
 
     public function setSubmissionDate( $SubmissionDate) {
@@ -195,6 +195,221 @@ class Applicant{
 
     public function getSubmissionDate() {
         return $this->_SubmissionDate;
+    }
+}
+class CV{
+    private $_ID;
+    private $_applicantID;
+    private $_Name;
+    private $_sector;
+    private $_email;
+    private $_phone;
+    private $_profile;
+    private $_technical_skill;
+    private $_education;
+    private $_skills;
+    private $_experience;
+
+    public function setID ( $ID ) {
+        $this->_ID = $ID;
+    }
+
+    public function getID () {
+        return $this->_ID;
+    }
+
+    public function setapplicantID( $applicantID ) {
+        $this->_applicantID = $applicantID;
+    }
+
+    public function getapplicantID () {
+        return $this->_applicantID;
+    }
+
+    public function setName ( $Name ) {
+        $this->_Name = $Name;
+    }
+
+    public function getName () {
+        return $this->_Name;
+    }
+
+    public function setsector ( $sector ) {
+        $this->_sector = $sector;
+    }
+
+    public function getsector () {
+        return $this->_sector;
+    }
+
+    public function setemail( $email) {
+        $this->_email= $email;
+    }
+
+    public function getemail() {
+        return $this->_email;
+    }
+
+    public function setphone ( $phone ) {
+        $this->_phone = $phone;
+    }
+
+    public function getphone () {
+        return $this->_phone;
+    }
+
+    public function setprofile ( $profile ) {
+        $this->_profile = $profile;
+    }
+
+    public function getprofile () {
+        return $this->_profile;
+    }
+
+    public function settechnical_skill( $technical_skill) {
+        $this->_technical_skill= $technical_skill;
+    }
+
+    public function gettechnical_skill() {
+        return $this->_technical_skill;
+    }
+
+    public function seteducation ( $education ) {
+        $this->_education = $education;
+    }
+
+    public function geteducation () {
+        return $this->_education;
+    }
+
+    public function setskills ( $skills ) {
+        $this->_skills = $skills;
+    }
+
+    public function getskills () {
+        return $this->_skills;
+    }
+
+    public function setexperience( $experience) {
+        $this->_experience= $experience;
+    }
+
+    public function getexperience() {
+        return $this->_experience;
+    }
+}
+class CV_Education{
+    private $_cvID;
+    private $_instituition;
+    private $_subject;
+    private $_cgpa;
+
+    public function setcvID ( $cvID ) {
+        $this->_cvID = $cvID;
+    }
+
+    public function getcvID () {
+        return $this->_cvID;
+    }
+
+    public function setinstituition( $instituition ) {
+        $this->_instituition = $instituition;
+    }
+
+    public function getinstituition () {
+        return $this->_instituition;
+    }
+
+    public function setsubject ( $subject ) {
+        $this->_subject = $subject;
+    }
+
+    public function getsubject () {
+        return $this->_subject;
+    }
+
+    public function setcgpa ( $cgpa ) {
+        $this->_cgpa = $cgpa;
+    }
+
+    public function getcgpa () {
+        return $this->_cgpa;
+    }
+}
+class CV_Experience{
+    private $_cvID;
+    private $_jobname;
+    private $_jobposition;
+    private $_workingyear;
+    private $_workdetails;
+
+    public function setcvID ( $cvID ) {
+        $this->_cvID = $cvID;
+    }
+
+    public function getcvID () {
+        return $this->_cvID;
+    }
+
+    public function setjobname( $jobname ) {
+        $this->_jobname = $jobname;
+    }
+
+    public function getjobname () {
+        return $this->_jobname;
+    }
+
+    public function setjobposition ( $jobposition ) {
+        $this->_jobposition = $jobposition;
+    }
+
+    public function getjobposition () {
+        return $this->_jobposition;
+    }
+
+    public function setworkingyear ( $workingyear ) {
+        $this->_workingyear = $workingyear;
+    }
+
+    public function getworkingyear () {
+        return $this->_workingyear;
+    }
+
+    public function setworkdetails ( $workdetails ) {
+        $this->_workdetails = $workdetails;
+    }
+
+    public function getworkdetails () {
+        return $this->_workdetails;
+    }
+}
+class CV_Skills{
+    private $_cvID;
+    private $_name;
+    private $_details;
+
+    public function setcvID ( $cvID ) {
+        $this->_cvID = $cvID;
+    }
+
+    public function getcvID () {
+        return $this->_cvID;
+    }
+
+    public function setname ( $name ) {
+        $this->_name = $name;
+    }
+
+    public function getname () {
+        return $this->_name;
+    }
+
+    public function setdetails( $details ) {
+        $this->_details = $details;
+    }
+
+    public function getdetails () {
+        return $this->_details;
     }
 }
 ?>
