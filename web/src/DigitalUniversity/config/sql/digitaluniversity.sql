@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 24, 2018 at 02:53 PM
+-- Generation Time: Oct 08, 2018 at 04:36 PM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -43,8 +43,7 @@ CREATE TABLE IF NOT EXISTS `jms_applicant` (
 --
 
 INSERT INTO `jms_applicant` (`ID`, `applicantID`, `JobID`, `cvID`, `SubmissionDate`) VALUES
-(9, 'hbappy79@gmail.com', '2', '1', '2018-08-13 05:03:17'),
-(10, 'mkazi078@uottawa.ca', '2', '', '2018-09-19 01:00:14');
+(9, 'hbappy79@gmail.com', '2', '1', '2018-08-13 05:03:17');
 
 -- --------------------------------------------------------
 
@@ -63,14 +62,15 @@ CREATE TABLE IF NOT EXISTS `jms_cv` (
   `profile` varchar(500) NOT NULL,
   `technical_skill` varchar(500) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv`
 --
 
 INSERT INTO `jms_cv` (`ID`, `applicantID`, `Name`, `sector`, `email`, `phone`, `profile`, `technical_skill`) VALUES
-(2, 'mkazi078@uottawa.ca', 'Anam Islam', 'Web Designer', 'anamislam000@gmail.com', '(+880) 1965-259845', 'Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change. ', '  XHTML,CSS,Javascript,Jquery,PHP,CVS / Subversion,OS X,Linux,Windows');
+(2, 'mkazi078@uottawa.ca', 'Anam Islam', 'Web Designer', 'anamislam000@gmail.com', '(+880) 1965-259845', 'Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change. ', '  XHTML,CSS,Javascript,Jquery,PHP,CVS / Subversion,OS X,Linux,Windows'),
+(7, 'hbappy79@gmail.com', 'dfg', 'dfgh', 'dfgdfg@gmail.com', 'ghfgbh', 'dgbdb', 'xfgvxgvxv');
 
 -- --------------------------------------------------------
 
@@ -80,19 +80,23 @@ INSERT INTO `jms_cv` (`ID`, `applicantID`, `Name`, `sector`, `email`, `phone`, `
 
 DROP TABLE IF EXISTS `jms_cv_education`;
 CREATE TABLE IF NOT EXISTS `jms_cv_education` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `cvID` int(11) NOT NULL,
   `instituition` varchar(45) NOT NULL,
   `subject` varchar(45) NOT NULL,
-  `cgpa` varchar(45) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `cgpa` varchar(45) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv_education`
 --
 
-INSERT INTO `jms_cv_education` (`cvID`, `instituition`, `subject`, `cgpa`) VALUES
-(2, 'Jessore Zilla School, Jessore', 'Science ', '5.0'),
-(2, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0');
+INSERT INTO `jms_cv_education` (`ID`, `cvID`, `instituition`, `subject`, `cgpa`) VALUES
+(1, 2, 'Jessore Zilla School, Jessore', 'Science ', '5.0'),
+(2, 2, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0'),
+(8, 7, 'xfgvbxvb', 'versity', 'xfgvbxgv'),
+(7, 7, 'xfgvbxvb', 'versity', 'xfgvbxgv');
 
 -- --------------------------------------------------------
 
@@ -102,20 +106,24 @@ INSERT INTO `jms_cv_education` (`cvID`, `instituition`, `subject`, `cgpa`) VALUE
 
 DROP TABLE IF EXISTS `jms_cv_experience`;
 CREATE TABLE IF NOT EXISTS `jms_cv_experience` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `cvID` int(11) NOT NULL,
   `jobname` varchar(45) NOT NULL,
   `jobposition` varchar(45) NOT NULL,
   `workingyear` varchar(45) NOT NULL,
-  `workdetails` varchar(500) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `workdetails` varchar(500) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv_experience`
 --
 
-INSERT INTO `jms_cv_experience` (`cvID`, `jobname`, `jobposition`, `workingyear`, `workdetails`) VALUES
-(2, 'Facebook', 'Senior Interface Designer', '2005-2007', 'Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. '),
-(2, 'Samsung Inc.', 'Senior Interface Designer', '2005-2007', 'Progressively reconceptualize multifunctional \"outside the box\" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits. ');
+INSERT INTO `jms_cv_experience` (`ID`, `cvID`, `jobname`, `jobposition`, `workingyear`, `workdetails`) VALUES
+(1, 2, 'Facebook', 'Senior Interface Designer', '2005-2007', 'Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. '),
+(2, 2, 'Samsung Inc.', 'Senior Interface Designer', '2005-2007', 'Progressively reconceptualize multifunctional \"outside the box\" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits. '),
+(8, 7, 'xfgvbxv', 'xgvxv', 'fxgbgvx', 'xgbvxgbv'),
+(7, 7, 'xfgvbxv', 'xgvxv', 'fxgbgvx', 'xgbvxgbv');
 
 -- --------------------------------------------------------
 
@@ -125,18 +133,22 @@ INSERT INTO `jms_cv_experience` (`cvID`, `jobname`, `jobposition`, `workingyear`
 
 DROP TABLE IF EXISTS `jms_cv_skills`;
 CREATE TABLE IF NOT EXISTS `jms_cv_skills` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `cvID` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `details` varchar(500) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `details` varchar(500) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv_skills`
 --
 
-INSERT INTO `jms_cv_skills` (`cvID`, `name`, `details`) VALUES
-(2, '\r\nWeb Design', 'Assertively exploit wireless initiatives rather than synergistic core competencies.'),
-(2, 'Interface Design', 'Credibly streamline mission-critical value with multifunctional functionalities. ');
+INSERT INTO `jms_cv_skills` (`ID`, `cvID`, `name`, `details`) VALUES
+(1, 2, 'Web Design', 'Assertively exploit wireless initiatives rather than synergistic core competencies.'),
+(2, 2, 'Interface Design', 'Credibly streamline mission-critical value with multifunctional functionalities. '),
+(8, 7, 'dfgbfgbv', 'xdfgvxv'),
+(7, 7, 'dfgbfgbv', 'xdfgvxv');
 
 -- --------------------------------------------------------
 
@@ -589,141 +601,137 @@ CREATE TABLE IF NOT EXISTS `ums_permission` (
   `Name` varchar(100) NOT NULL,
   `Category` varchar(100) NOT NULL,
   PRIMARY KEY (`TableID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1321 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1693 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ums_permission`
 --
 
 INSERT INTO `ums_permission` (`TableID`, `ID`, `Name`, `Category`) VALUES
-(1193, 'COURSE_C', 'COURSE_C', 'COURSE'),
-(1194, 'COURSE_R', 'COURSE_R', 'COURSE'),
-(1195, 'COURSE_U', 'COURSE_U', 'COURSE'),
-(1196, 'COURSE_D', 'COURSE_D', 'COURSE'),
-(1197, 'COURSE_TYPE_C', 'COURSE_TYPE_C', 'COURSE TYPE'),
-(1198, 'COURSE_TYPE_R', 'COURSE_TYPE_R', 'COURSE TYPE'),
-(1199, 'COURSE_TYPE_U', 'COURSE_TYPE_U', 'COURSE TYPE'),
-(1200, 'COURSE_TYPE_D', 'COURSE_TYPE_D', 'COURSE TYPE'),
-(1201, 'COURSE_SESSIONAL_TYPE_C', 'COURSE_SESSIONAL_TYPE_C', 'COURSE SESSIONAL TYPE'),
-(1202, 'COURSE_SESSIONAL_TYPE_R', 'COURSE_SESSIONAL_TYPE_R', 'COURSE SESSIONAL TYPE'),
-(1203, 'COURSE_SESSIONAL_TYPE_U', 'COURSE_SESSIONAL_TYPE_U', 'COURSE SESSIONAL TYPE'),
-(1204, 'COURSE_SESSIONAL_TYPE_D', 'COURSE_SESSIONAL_TYPE_D', 'COURSE SESSIONAL TYPE'),
-(1205, 'CLUB_C', 'CLUB_C', 'CLUB'),
-(1206, 'CLUB_R', 'CLUB_R', 'CLUB'),
-(1207, 'CLUB_U', 'CLUB_U', 'CLUB'),
-(1208, 'CLUB_D', 'CLUB_D', 'CLUB'),
-(1209, 'DISCUSSION_C', 'DISCUSSION_C', 'DISCUSSION'),
-(1210, 'DISCUSSION_R', 'DISCUSSION_R', 'DISCUSSION'),
-(1211, 'DISCUSSION_U', 'DISCUSSION_U', 'DISCUSSION'),
-(1212, 'DISCUSSION_D', 'DISCUSSION_D', 'DISCUSSION'),
-(1213, 'DISCUSSION_CAT_C', 'DISCUSSION_CAT_C', 'DISCUSSION CATEGORY'),
-(1214, 'DISCUSSION_CAT_R', 'DISCUSSION_CAT_R', 'DISCUSSION CATEGORY'),
-(1215, 'DISCUSSION_CAT_U', 'DISCUSSION_CAT_U', 'DISCUSSION CATEGORY'),
-(1216, 'DISCUSSION_CAT_D', 'DISCUSSION_CAT_D', 'DISCUSSION CATEGORY'),
-(1217, 'DISCUSSION_COMMENT_C', 'DISCUSSION_COMMENT_C', 'DISCUSSION COMMENT'),
-(1218, 'DISCUSSION_COMMENT_R', 'DISCUSSION_COMMENT_R', 'DISCUSSION COMMENT'),
-(1219, 'DISCUSSION_COMMENT_U', 'DISCUSSION_COMMENT_U', 'DISCUSSION COMMENT'),
-(1220, 'DISCUSSION_COMMENT_D', 'DISCUSSION_COMMENT_D', 'DISCUSSION COMMENT'),
-(1221, 'DISCIPLINE_C', 'DISCIPLINE_C', 'DISCIPLINE'),
-(1222, 'DISCIPLINE_R', 'DISCIPLINE_R', 'DISCIPLINE'),
-(1223, 'DISCIPLINE_U', 'DISCIPLINE_U', 'DISCIPLINE'),
-(1224, 'DISCIPLINE_D', 'DISCIPLINE_D', 'DISCIPLINE'),
-(1225, 'FILE_C', 'FILE_C', 'FILE'),
-(1226, 'FILE_R', 'FILE_R', 'FILE'),
-(1227, 'FILE_U', 'FILE_U', 'FILE'),
-(1228, 'FILE_D', 'FILE_D', 'FILE'),
-(1229, 'PERMISSION_C', 'PERMISSION_C', 'PERMISSION'),
-(1230, 'PERMISSION_R', 'PERMISSION_R', 'PERMISSION'),
-(1231, 'PERMISSION_U', 'PERMISSION_U', 'PERMISSION'),
-(1232, 'PERMISSION_D', 'PERMISSION_D', 'PERMISSION'),
-(1233, 'POSITION_C', 'POSITION_C', 'POSITION'),
-(1234, 'POSITION_R', 'POSITION_R', 'POSITION'),
-(1235, 'POSITION_U', 'POSITION_U', 'POSITION'),
-(1236, 'POSITION_D', 'POSITION_D', 'POSITION'),
-(1237, 'PROJECT_C', 'PROJECT_C', 'PROJECT'),
-(1238, 'PROJECT_R', 'PROJECT_R', 'PROJECT'),
-(1239, 'PROJECT_U', 'PROJECT_U', 'PROJECT'),
-(1240, 'PROJECT_D', 'PROJECT_D', 'PROJECT'),
-(1241, 'QUESTION_C', 'QUESTION_C', 'QUESTION'),
-(1242, 'QUESTION_R', 'QUESTION_R', 'QUESTION'),
-(1243, 'QUESTION_U', 'QUESTION_U', 'QUESTION'),
-(1244, 'QUESTION_D', 'QUESTION_D', 'QUESTION'),
-(1245, 'REGISTRATION_C', 'REGISTRATION_C', 'REGISTRATION'),
-(1246, 'REGISTRATION_R', 'REGISTRATION_R', 'REGISTRATION'),
-(1247, 'REGISTRATION_U', 'REGISTRATION_U', 'REGISTRATION'),
-(1248, 'REGISTRATION_D', 'REGISTRATION_D', 'REGISTRATION'),
-(1249, 'RESULT_C', 'RESULT_C', 'RESULT'),
-(1250, 'RESULT_R', 'RESULT_R', 'RESULT'),
-(1251, 'RESULT_U', 'RESULT_U', 'RESULT'),
-(1252, 'RESULT_D', 'RESULT_D', 'RESULT'),
-(1253, 'ATTENDANCE_C', 'ATTENDANCE_C', 'ATTENDANCE'),
-(1254, 'ATTENDANCE_R', 'ATTENDANCE_R', 'ATTENDANCE'),
-(1255, 'ATTENDANCE_U', 'ATTENDANCE_U', 'ATTENDANCE'),
-(1256, 'ATTENDANCE_D', 'ATTENDANCE_D', 'ATTENDANCE'),
-(1257, 'MARKS_SETUP_C', 'MARKS_SETUP_C', 'MARKS_SETUP'),
-(1258, 'MARKS_SETUP_R', 'MARKS_SETUP_R', 'MARKS_SETUP'),
-(1259, 'MARKS_SETUP_U', 'MARKS_SETUP_U', 'MARKS_SETUP'),
-(1260, 'MARKS_SETUP_D', 'MARKS_SETUP_D', 'MARKS_SETUP'),
-(1261, 'GRADE_SETUP_C', 'GRADE_SETUP_C', 'GRADE_SETUP'),
-(1262, 'GRADE_SETUP_R', 'GRADE_SETUP_R', 'GRADE_SETUP'),
-(1263, 'GRADE_SETUP_U', 'GRADE_SETUP_U', 'GRADE_SETUP'),
-(1264, 'GRADE_SETUP_D', 'GRADE_SETUP_D', 'GRADE_SETUP'),
-(1265, 'ROLE_C', 'ROLE_C', 'ROLE'),
-(1266, 'ROLE_R', 'ROLE_R', 'ROLE'),
-(1267, 'ROLE_U', 'ROLE_U', 'ROLE'),
-(1268, 'ROLE_D', 'ROLE_D', 'ROLE'),
-(1269, 'SCHOOL_C', 'SCHOOL_C', 'SCHOOL'),
-(1270, 'SCHOOL_R', 'SCHOOL_R', 'SCHOOL'),
-(1271, 'SCHOOL_U', 'SCHOOL_U', 'SCHOOL'),
-(1272, 'SCHOOL_D', 'SCHOOL_D', 'SCHOOL'),
-(1273, 'SESSION_C', 'SESSION_C', 'SESSION'),
-(1274, 'SESSION_R', 'SESSION_R', 'SESSION'),
-(1275, 'SESSION_U', 'SESSION_U', 'SESSION'),
-(1276, 'SESSION_D', 'SESSION_D', 'SESSION'),
-(1277, 'SURVEY_C', 'SURVEY_C', 'SURVEY'),
-(1278, 'SURVEY_R', 'SURVEY_R', 'SURVEY'),
-(1279, 'SURVEY_U', 'SURVEY_U', 'SURVEY'),
-(1280, 'SURVEY_D', 'SURVEY_D', 'SURVEY'),
-(1281, 'SURVEY_QUESTION_C', 'SURVEY_QUESTION_C', 'SURVEY QUESTION'),
-(1282, 'SURVEY_QUESTION_R', 'SURVEY_QUESTION_R', 'SURVEY QUESTION'),
-(1283, 'SURVEY_QUESTION_U', 'SURVEY_QUESTION_U', 'SURVEY QUESTION'),
-(1284, 'SURVEY_QUESTION_D', 'SURVEY_QUESTION_D', 'SURVEY QUESTION'),
-(1285, 'SURVEY_QUESTION_TYPE_C', 'SURVEY_QUESTION_TYPE_C', 'SURVEY QUESTION TYPE'),
-(1286, 'SURVEY_QUESTION_TYPE_R', 'SURVEY_QUESTION_TYPE_R', 'SURVEY QUESTION TYPE'),
-(1287, 'SURVEY_QUESTION_TYPE_U', 'SURVEY_QUESTION_TYPE_U', 'SURVEY QUESTION TYPE'),
-(1288, 'SURVEY_QUESTION_TYPE_D', 'SURVEY_QUESTION_TYPE_D', 'SURVEY QUESTION TYPE'),
-(1289, 'SURVEY_QUESTION_FILLUP_C', 'SURVEY_QUESTION_FILLUP_C', 'SURVEY QUESTION FILLUP'),
-(1290, 'SURVEY_QUESTION_FILLUP_R', 'SURVEY_QUESTION_FILLUP_R', 'SURVEY QUESTION FILLUP'),
-(1291, 'SURVEY_QUESTION_FILLUP_U', 'SURVEY_QUESTION_FILLUP_U', 'SURVEY QUESTION FILLUP'),
-(1292, 'SURVEY_QUESTION_FILLUP_D', 'SURVEY_QUESTION_FILLUP_D', 'SURVEY QUESTION FILLUP'),
-(1293, 'TERM_C', 'TERM_C', 'TERM'),
-(1294, 'TERM_R', 'TERM_R', 'TERM'),
-(1295, 'TERM_U', 'TERM_U', 'TERM'),
-(1296, 'TERM_D', 'TERM_D', 'TERM'),
-(1297, 'USER_C', 'USER_C', 'USER'),
-(1298, 'USER_R', 'USER_R', 'USER'),
-(1299, 'USER_U', 'USER_U', 'USER'),
-(1300, 'USER_D', 'USER_D', 'USER'),
-(1301, 'YEAR_C', 'YEAR_C', 'YEAR'),
-(1302, 'YEAR_R', 'YEAR_R', 'YEAR'),
-(1303, 'YEAR_U', 'YEAR_U', 'YEAR'),
-(1304, 'YEAR_D', 'YEAR_D', 'YEAR'),
-(1305, 'VIDEO_C', 'VIDEO_C', 'VIDEO'),
-(1306, 'VIDEO_R', 'VIDEO_R', 'VIDEO'),
-(1307, 'VIDEO_U', 'VIDEO_U', 'VIDEO'),
-(1308, 'VIDEO_D', 'VIDEO_D', 'VIDEO'),
-(1309, 'VIDEO_COMMENT_C', 'VIDEO_COMMENT_C', 'VIDEO COMMENT'),
-(1310, 'VIDEO_COMMENT_R', 'VIDEO_COMMENT_R', 'VIDEO COMMENT'),
-(1311, 'VIDEO_COMMENT_U', 'VIDEO_COMMENT_U', 'VIDEO COMMENT'),
-(1312, 'VIDEO_COMMENT_D', 'VIDEO_COMMENT_D', 'VIDEO COMMENT'),
-(1313, 'JOB_C', 'JOB_C', 'JOB'),
-(1314, 'JOB_R', 'JOB_R', 'JOB'),
-(1315, 'JOB_U', 'JOB_U', 'JOB'),
-(1316, 'JOB_D', 'JOB_D', 'JOB'),
-(1317, 'SCHOLARSHIP_C', 'SCHOLARSHIP_C', 'SCHOLARSHIP'),
-(1318, 'SCHOLARSHIP_R', 'SCHOLARSHIP_R', 'SCHOLARSHIP'),
-(1319, 'SCHOLARSHIP_U', 'SCHOLARSHIP_U', 'SCHOLARSHIP'),
-(1320, 'SCHOLARSHIP_D', 'SCHOLARSHIP_D', 'SCHOLARSHIP');
+(1569, 'COURSE_C', 'COURSE_C', 'COURSE'),
+(1570, 'COURSE_R', 'COURSE_R', 'COURSE'),
+(1571, 'COURSE_U', 'COURSE_U', 'COURSE'),
+(1572, 'COURSE_D', 'COURSE_D', 'COURSE'),
+(1573, 'COURSE_TYPE_C', 'COURSE_TYPE_C', 'COURSE TYPE'),
+(1574, 'COURSE_TYPE_R', 'COURSE_TYPE_R', 'COURSE TYPE'),
+(1575, 'COURSE_TYPE_U', 'COURSE_TYPE_U', 'COURSE TYPE'),
+(1576, 'COURSE_TYPE_D', 'COURSE_TYPE_D', 'COURSE TYPE'),
+(1577, 'COURSE_SESSIONAL_TYPE_C', 'COURSE_SESSIONAL_TYPE_C', 'COURSE SESSIONAL TYPE'),
+(1578, 'COURSE_SESSIONAL_TYPE_R', 'COURSE_SESSIONAL_TYPE_R', 'COURSE SESSIONAL TYPE'),
+(1579, 'COURSE_SESSIONAL_TYPE_U', 'COURSE_SESSIONAL_TYPE_U', 'COURSE SESSIONAL TYPE'),
+(1580, 'COURSE_SESSIONAL_TYPE_D', 'COURSE_SESSIONAL_TYPE_D', 'COURSE SESSIONAL TYPE'),
+(1581, 'CLUB_C', 'CLUB_C', 'CLUB'),
+(1582, 'CLUB_R', 'CLUB_R', 'CLUB'),
+(1583, 'CLUB_U', 'CLUB_U', 'CLUB'),
+(1584, 'CLUB_D', 'CLUB_D', 'CLUB'),
+(1585, 'DISCUSSION_C', 'DISCUSSION_C', 'DISCUSSION'),
+(1586, 'DISCUSSION_R', 'DISCUSSION_R', 'DISCUSSION'),
+(1587, 'DISCUSSION_U', 'DISCUSSION_U', 'DISCUSSION'),
+(1588, 'DISCUSSION_D', 'DISCUSSION_D', 'DISCUSSION'),
+(1589, 'DISCUSSION_CAT_C', 'DISCUSSION_CAT_C', 'DISCUSSION CATEGORY'),
+(1590, 'DISCUSSION_CAT_R', 'DISCUSSION_CAT_R', 'DISCUSSION CATEGORY'),
+(1591, 'DISCUSSION_CAT_U', 'DISCUSSION_CAT_U', 'DISCUSSION CATEGORY'),
+(1592, 'DISCUSSION_CAT_D', 'DISCUSSION_CAT_D', 'DISCUSSION CATEGORY'),
+(1593, 'DISCUSSION_COMMENT_C', 'DISCUSSION_COMMENT_C', 'DISCUSSION COMMENT'),
+(1594, 'DISCUSSION_COMMENT_R', 'DISCUSSION_COMMENT_R', 'DISCUSSION COMMENT'),
+(1595, 'DISCUSSION_COMMENT_U', 'DISCUSSION_COMMENT_U', 'DISCUSSION COMMENT'),
+(1596, 'DISCUSSION_COMMENT_D', 'DISCUSSION_COMMENT_D', 'DISCUSSION COMMENT'),
+(1597, 'DISCIPLINE_C', 'DISCIPLINE_C', 'DISCIPLINE'),
+(1598, 'DISCIPLINE_R', 'DISCIPLINE_R', 'DISCIPLINE'),
+(1599, 'DISCIPLINE_U', 'DISCIPLINE_U', 'DISCIPLINE'),
+(1600, 'DISCIPLINE_D', 'DISCIPLINE_D', 'DISCIPLINE'),
+(1601, 'FILE_C', 'FILE_C', 'FILE'),
+(1602, 'FILE_R', 'FILE_R', 'FILE'),
+(1603, 'FILE_U', 'FILE_U', 'FILE'),
+(1604, 'FILE_D', 'FILE_D', 'FILE'),
+(1605, 'PERMISSION_C', 'PERMISSION_C', 'PERMISSION'),
+(1606, 'PERMISSION_R', 'PERMISSION_R', 'PERMISSION'),
+(1607, 'PERMISSION_U', 'PERMISSION_U', 'PERMISSION'),
+(1608, 'PERMISSION_D', 'PERMISSION_D', 'PERMISSION'),
+(1609, 'POSITION_C', 'POSITION_C', 'POSITION'),
+(1610, 'POSITION_R', 'POSITION_R', 'POSITION'),
+(1611, 'POSITION_U', 'POSITION_U', 'POSITION'),
+(1612, 'POSITION_D', 'POSITION_D', 'POSITION'),
+(1613, 'PROJECT_C', 'PROJECT_C', 'PROJECT'),
+(1614, 'PROJECT_R', 'PROJECT_R', 'PROJECT'),
+(1615, 'PROJECT_U', 'PROJECT_U', 'PROJECT'),
+(1616, 'PROJECT_D', 'PROJECT_D', 'PROJECT'),
+(1617, 'QUESTION_C', 'QUESTION_C', 'QUESTION'),
+(1618, 'QUESTION_R', 'QUESTION_R', 'QUESTION'),
+(1619, 'QUESTION_U', 'QUESTION_U', 'QUESTION'),
+(1620, 'QUESTION_D', 'QUESTION_D', 'QUESTION'),
+(1621, 'REGISTRATION_C', 'REGISTRATION_C', 'REGISTRATION'),
+(1622, 'REGISTRATION_R', 'REGISTRATION_R', 'REGISTRATION'),
+(1623, 'REGISTRATION_U', 'REGISTRATION_U', 'REGISTRATION'),
+(1624, 'REGISTRATION_D', 'REGISTRATION_D', 'REGISTRATION'),
+(1625, 'RESULT_C', 'RESULT_C', 'RESULT'),
+(1626, 'RESULT_R', 'RESULT_R', 'RESULT'),
+(1627, 'RESULT_U', 'RESULT_U', 'RESULT'),
+(1628, 'RESULT_D', 'RESULT_D', 'RESULT'),
+(1629, 'ATTENDANCE_C', 'ATTENDANCE_C', 'ATTENDANCE'),
+(1630, 'ATTENDANCE_R', 'ATTENDANCE_R', 'ATTENDANCE'),
+(1631, 'ATTENDANCE_U', 'ATTENDANCE_U', 'ATTENDANCE'),
+(1632, 'ATTENDANCE_D', 'ATTENDANCE_D', 'ATTENDANCE'),
+(1633, 'MARKS_SETUP_C', 'MARKS_SETUP_C', 'MARKS_SETUP'),
+(1634, 'MARKS_SETUP_R', 'MARKS_SETUP_R', 'MARKS_SETUP'),
+(1635, 'MARKS_SETUP_U', 'MARKS_SETUP_U', 'MARKS_SETUP'),
+(1636, 'MARKS_SETUP_D', 'MARKS_SETUP_D', 'MARKS_SETUP'),
+(1637, 'GRADE_SETUP_C', 'GRADE_SETUP_C', 'GRADE_SETUP'),
+(1638, 'GRADE_SETUP_R', 'GRADE_SETUP_R', 'GRADE_SETUP'),
+(1639, 'GRADE_SETUP_U', 'GRADE_SETUP_U', 'GRADE_SETUP'),
+(1640, 'GRADE_SETUP_D', 'GRADE_SETUP_D', 'GRADE_SETUP'),
+(1641, 'ROLE_C', 'ROLE_C', 'ROLE'),
+(1642, 'ROLE_R', 'ROLE_R', 'ROLE'),
+(1643, 'ROLE_U', 'ROLE_U', 'ROLE'),
+(1644, 'ROLE_D', 'ROLE_D', 'ROLE'),
+(1645, 'SCHOOL_C', 'SCHOOL_C', 'SCHOOL'),
+(1646, 'SCHOOL_R', 'SCHOOL_R', 'SCHOOL'),
+(1647, 'SCHOOL_U', 'SCHOOL_U', 'SCHOOL'),
+(1648, 'SCHOOL_D', 'SCHOOL_D', 'SCHOOL'),
+(1649, 'SESSION_C', 'SESSION_C', 'SESSION'),
+(1650, 'SESSION_R', 'SESSION_R', 'SESSION'),
+(1651, 'SESSION_U', 'SESSION_U', 'SESSION'),
+(1652, 'SESSION_D', 'SESSION_D', 'SESSION'),
+(1653, 'SURVEY_C', 'SURVEY_C', 'SURVEY'),
+(1654, 'SURVEY_R', 'SURVEY_R', 'SURVEY'),
+(1655, 'SURVEY_U', 'SURVEY_U', 'SURVEY'),
+(1656, 'SURVEY_D', 'SURVEY_D', 'SURVEY'),
+(1657, 'SURVEY_QUESTION_C', 'SURVEY_QUESTION_C', 'SURVEY QUESTION'),
+(1658, 'SURVEY_QUESTION_R', 'SURVEY_QUESTION_R', 'SURVEY QUESTION'),
+(1659, 'SURVEY_QUESTION_U', 'SURVEY_QUESTION_U', 'SURVEY QUESTION'),
+(1660, 'SURVEY_QUESTION_D', 'SURVEY_QUESTION_D', 'SURVEY QUESTION'),
+(1661, 'SURVEY_QUESTION_TYPE_C', 'SURVEY_QUESTION_TYPE_C', 'SURVEY QUESTION TYPE'),
+(1662, 'SURVEY_QUESTION_TYPE_R', 'SURVEY_QUESTION_TYPE_R', 'SURVEY QUESTION TYPE'),
+(1663, 'SURVEY_QUESTION_TYPE_U', 'SURVEY_QUESTION_TYPE_U', 'SURVEY QUESTION TYPE'),
+(1664, 'SURVEY_QUESTION_TYPE_D', 'SURVEY_QUESTION_TYPE_D', 'SURVEY QUESTION TYPE'),
+(1665, 'SURVEY_QUESTION_FILLUP_C', 'SURVEY_QUESTION_FILLUP_C', 'SURVEY QUESTION FILLUP'),
+(1666, 'SURVEY_QUESTION_FILLUP_R', 'SURVEY_QUESTION_FILLUP_R', 'SURVEY QUESTION FILLUP'),
+(1667, 'SURVEY_QUESTION_FILLUP_U', 'SURVEY_QUESTION_FILLUP_U', 'SURVEY QUESTION FILLUP'),
+(1668, 'SURVEY_QUESTION_FILLUP_D', 'SURVEY_QUESTION_FILLUP_D', 'SURVEY QUESTION FILLUP'),
+(1669, 'TERM_C', 'TERM_C', 'TERM'),
+(1670, 'TERM_R', 'TERM_R', 'TERM'),
+(1671, 'TERM_U', 'TERM_U', 'TERM'),
+(1672, 'TERM_D', 'TERM_D', 'TERM'),
+(1673, 'USER_C', 'USER_C', 'USER'),
+(1674, 'USER_R', 'USER_R', 'USER'),
+(1675, 'USER_U', 'USER_U', 'USER'),
+(1676, 'USER_D', 'USER_D', 'USER'),
+(1677, 'YEAR_C', 'YEAR_C', 'YEAR'),
+(1678, 'YEAR_R', 'YEAR_R', 'YEAR'),
+(1679, 'YEAR_U', 'YEAR_U', 'YEAR'),
+(1680, 'YEAR_D', 'YEAR_D', 'YEAR'),
+(1681, 'VIDEO_C', 'VIDEO_C', 'VIDEO'),
+(1682, 'VIDEO_R', 'VIDEO_R', 'VIDEO'),
+(1683, 'VIDEO_U', 'VIDEO_U', 'VIDEO'),
+(1684, 'VIDEO_D', 'VIDEO_D', 'VIDEO'),
+(1685, 'VIDEO_COMMENT_C', 'VIDEO_COMMENT_C', 'VIDEO COMMENT'),
+(1686, 'VIDEO_COMMENT_R', 'VIDEO_COMMENT_R', 'VIDEO COMMENT'),
+(1687, 'VIDEO_COMMENT_U', 'VIDEO_COMMENT_U', 'VIDEO COMMENT'),
+(1688, 'VIDEO_COMMENT_D', 'VIDEO_COMMENT_D', 'VIDEO COMMENT'),
+(1689, 'JOB_C', 'JOB_C', 'JOB'),
+(1690, 'JOB_R', 'JOB_R', 'JOB'),
+(1691, 'JOB_U', 'JOB_U', 'JOB'),
+(1692, 'JOB_D', 'JOB_D', 'JOB');
 
 -- --------------------------------------------------------
 

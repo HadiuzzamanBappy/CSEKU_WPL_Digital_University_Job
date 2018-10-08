@@ -299,10 +299,19 @@ class CV{
     }
 }
 class CV_Education{
+    private $_ID;
     private $_cvID;
     private $_instituition;
     private $_subject;
     private $_cgpa;
+
+    public function setID ( $ID ) {
+        $this->_ID = $ID;
+    }
+
+    public function getID () {
+        return $this->_ID;
+    }
 
     public function setcvID ( $cvID ) {
         $this->_cvID = $cvID;
@@ -337,11 +346,20 @@ class CV_Education{
     }
 }
 class CV_Experience{
+    private $_ID;
     private $_cvID;
     private $_jobname;
     private $_jobposition;
     private $_workingyear;
     private $_workdetails;
+
+    public function setID ( $ID ) {
+        $this->_ID = $ID;
+    }
+
+    public function getID () {
+        return $this->_ID;
+    }
 
     public function setcvID ( $cvID ) {
         $this->_cvID = $cvID;
@@ -384,9 +402,18 @@ class CV_Experience{
     }
 }
 class CV_Skills{
+    private $_ID;
     private $_cvID;
     private $_name;
     private $_details;
+
+    public function setID ( $ID ) {
+        $this->_ID = $ID;
+    }
+
+    public function getID () {
+        return $this->_ID;
+    }
 
     public function setcvID ( $cvID ) {
         $this->_cvID = $cvID;
@@ -410,6 +437,63 @@ class CV_Skills{
 
     public function getdetails () {
         return $this->_details;
+    }
+}
+
+class JOB_Application{
+    private $_ID;
+    private $_applicantID;
+    private $_JobID;
+    private $_cvID;
+    private $_SubmissionDate;
+    private $_jobname;
+
+    public function setID ( $ID ) {
+        $this->_ID = $ID;
+    }
+
+    public function getID () {
+        return $this->_ID;
+    }
+
+    public function setapplicantID ( $applicantID ) {
+        $this->_applicantID = $applicantID;
+    }
+
+    public function getapplicantID () {
+        return $this->_applicantID;
+    }
+
+    public function setJobID ( $JobID ) {
+        $this->_JobID = $JobID;
+    }
+
+    public function getJobID () {
+        return $this->_JobID;
+    }
+
+    public function setcvID( $cvID ) {
+        $this->_cvID = $cvID;
+    }
+
+    public function getcvID () {
+        return $this->_cvID;
+    }
+    
+    public function setSubmissionDate( $SubmissionDate ) {
+        $this->_SubmissionDate = $SubmissionDate;
+    }
+
+    public function getSubmissionDate () {
+        return $this->_SubmissionDate;
+    }
+
+    public function setjobname( $jobname ) {
+        $this->_jobname = $jobname;
+    }
+
+    public function getjobname () {
+        return $this->_jobname;
     }
 }
 ?>

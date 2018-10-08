@@ -93,7 +93,7 @@ if(isset($_GET['apply']))
 			echo '<script type="text/javascript">',
      				'alert("Please Try again later.");',
      			'</script>';
-		}
+		} 
 	}
 	else{
 		echo '<script type="text/javascript">',

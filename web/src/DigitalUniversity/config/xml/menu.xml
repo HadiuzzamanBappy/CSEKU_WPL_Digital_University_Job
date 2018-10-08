@@ -930,7 +930,7 @@
 				<Menu>
 					<ParentMenu>Manage Job</ParentMenu>
 					<Title>See All Job Application</Title>
-					<Link>job_update.php</Link>
+					<Link>job_all_application.php</Link>
 					<Permissions>
 						<Permission>JOB_C</Permission>
 						<Permission>JOB_U</Permission>									
@@ -940,7 +940,7 @@
 				<Menu>
 					<ParentMenu>Manage Job</ParentMenu>
 					<Title>My Job Application</Title>
-					<Link>job_update.php</Link>
+					<Link>job_my_application.php</Link>
 					<Permissions>
 						<Permission>JOB_R</Permission>
 					</Permissions>

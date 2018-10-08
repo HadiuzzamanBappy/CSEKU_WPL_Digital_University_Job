@@ -94,7 +94,7 @@ span{
 	box-shadow: 4px 6px 10px #757575;
 }
 
-.full_cv {
+#full_cv {
 	width: 900px;
 	margin: 0 auto;
 	border: 1px solid grey;

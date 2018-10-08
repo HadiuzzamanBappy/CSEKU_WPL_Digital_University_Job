@@ -5,10 +5,7 @@ include_once COMMON.'class.common.inc';
 
 ?>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-    	CV Information
-    </div>
+<div class="panel-default">
     <div class="panel-body">
     	<?php
     		$globalUser = '';
@@ -18,14 +15,13 @@ include_once COMMON.'class.common.inc';
 			if($Result->getIsSuccess()){
 				$CV = $Result->getResultObject();
 		?>
-    	<div class="full_cv">
+    	<div id="full_cv">
 			<div id="jms_cv_header">
 				<div id="jms_name_appearence">
 					<h1><?php echo $CV->getName(); ?></h1>
 					<h2><?php echo $CV->getsector(); ?></h2>
 				</div>
 				<div id="jms_cv_link">
-					<a id="jms_cv_link_down" href="#">Download PDF</a><br>
 					<a id="jms_cv_link_email" href="mailto:name@yourdomain.com"><?php echo $CV->getemail(); ?></a>
 					<p id="jms_cv_link_phone"><?php echo $CV->getphone(); ?></p>
 				</div>
@@ -104,9 +100,6 @@ include_once COMMON.'class.common.inc';
 			<div id="jms_cv_footer">
 				<p><?php echo $CV->getName(); ?> &mdash; <a href="mailto:name@yourdomain.com"><?php echo $CV->getemail(); ?></a> &mdash; <?php echo $CV->getphone(); ?></p>
 			</div><!--// footer -->
-	    </div>
-	    <div class="footer_button">
-	    	<button class="edit_cv">Edit</button>
 	    </div>
 	    <?php
 			}

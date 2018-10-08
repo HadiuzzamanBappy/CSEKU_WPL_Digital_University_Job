@@ -128,6 +128,7 @@ Class JobCVCreateDAO{
 	//create new job request with the job object
 	public function JobCVUpdateRequest($CV){
 
+		$ID=$CV->getID();
 		$applicantID=$CV->getapplicantID(); 
 		$Name=$CV->getName(); 
 		$sector=$CV->getsector(); 
@@ -139,17 +140,26 @@ Class JobCVCreateDAO{
 		$CV_Skills=$CV->getskills();
 		$CV_Experience=$CV->getexperience();
 
-		$this->_DB->doQuery("SELECT * FROM jms_cv where applicantID like '$applicantID'");
+		$SQL = "DELETE FROM jms_cv where ID like '$ID'";
 
-		$rows = $this->_DB->getAllRows();
-		if(sizeof($rows)>0)
-		{
-			$Result = new Result();
-			$Result->setIsSuccess(1);
-			$Result->setResultObject("You have already created");
-		}
-		else
-		{
+		$SQL = $this->_DB->doQuery($SQL);
+
+
+		$SQL = "DELETE FROM jms_cv_education where cvID like '$ID'";
+
+		$SQL = $this->_DB->doQuery($SQL);
+
+
+		$SQL = "DELETE FROM jms_cv_skills where cvID like '$ID'";
+
+		$SQL = $this->_DB->doQuery($SQL);
+
+
+		$SQL = "DELETE FROM jms_cv_experience where cvID like '$ID'";
+
+		$SQL = $this->_DB->doQuery($SQL);
+
+
 		$SQL = "INSERT INTO jms_cv(applicantID,Name,sector,email,phone,profile,technical_skill)
 		 	VALUES('$applicantID','$Name','$sector','$email','$phone','$profile','$technical_skill')";
 
@@ -225,7 +235,6 @@ Class JobCVCreateDAO{
 	 	$Result = new Result();
 		$Result->setIsSuccess(1);
 		$Result->setResultObject("New CV dropped Successfully.");
-		}
 		return $Result;
 	}
 

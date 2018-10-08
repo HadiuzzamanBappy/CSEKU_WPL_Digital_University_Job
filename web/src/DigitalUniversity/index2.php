@@ -74,7 +74,7 @@ include_once $template_link.'menu.inc';
         <script src="resources/js/jquery.min.js"></script>
         <script src="resources/js/bootstrap.min.js"></script>
         <script src="resources/js/myscript.js"></script>
-        <script src="resources/js/question_js_2.js" rel="script"></script>                            
+        <script src="resources/js/question_js_2.js" rel="script"></script>                          
     </head>
 
 <body>

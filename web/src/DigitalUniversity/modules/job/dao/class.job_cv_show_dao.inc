@@ -52,6 +52,7 @@ Class JobCVShowDAO{
 			$row2 = $rows2[$i];
 			$this->_CV_Education = new CV_Education();
 
+			$this->_CV_Education->setID ( $row2['ID']);
 		    $this->_CV_Education->setcvID ( $row2['cvID']);
 		    $this->_CV_Education->setinstituition ( $row2['instituition'] );   
 		    $this->_CV_Education->setsubject ( $row2['subject'] );
@@ -68,6 +69,7 @@ Class JobCVShowDAO{
 			$row3 = $rows3[$i];
 			$this->_CV_Experience = new CV_Experience();
 
+			$this->_CV_Education->setID ( $row3['ID']);
 		    $this->_CV_Experience->setcvID ( $row3['cvID']);
 		    $this->_CV_Experience->setjobname ( $row3['jobname'] );   
 		    $this->_CV_Experience->setjobposition ( $row3['jobposition'] );
@@ -85,6 +87,7 @@ Class JobCVShowDAO{
 			$row4 = $rows4[$i];
 			$this->_CV_Skills = new CV_Skills();
 
+			$this->_CV_Education->setID ( $row4['ID']);
 		    $this->_CV_Skills->setcvID ( $row4['cvID']);
 		    $this->_CV_Skills->setname ( $row4['name'] );   
 		    $this->_CV_Skills->setdetails ( $row4['details'] );

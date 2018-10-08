@@ -82,7 +82,7 @@ if(isset($_POST['request']))
 }
 
 /* saving a new job details*/
-if(isset($_POST['request']))
+if(isset($_POST['update']))
 {
     $CV = new CV();
     $CV_Education = new CV_Education(); 
@@ -97,6 +97,8 @@ if(isset($_POST['request']))
 
     $CV->setapplicantID($globalUser->getID()); 
 
+    $CV->setID($_DB->secureInput($_POST['txtCVID'])); 
+
     $CV->setName($_DB->secureInput($_POST['txtCVName']));
 
     $CV->setsector($_DB->secureInput($_POST['txtCVSector']));
@@ -109,18 +111,21 @@ if(isset($_POST['request']))
 
     $CV->settechnical_skill($_DB->secureInput($_POST['txtCVTechnicalSkills']));
 
+    $CV_Education->setID ( $_DB->secureInput($_POST['txtCVEducationIDOne']) );
     $CV_Education->setinstituition ( $_DB->secureInput($_POST['txtCVEducationInstituitionOne']) );   
     $CV_Education->setsubject ( $_DB->secureInput($_POST['txtCVEducationSubjectOne']) );
     $CV_Education->setcgpa ( $_DB->secureInput($_POST['txtCVEducationGPAOne']) );
 
     $Education_List[]=$CV_Education;
 
+    $CV_Education->setID ( $_DB->secureInput($_POST['txtCVEducationIDTwo']) );
     $CV_Education->setinstituition ( $_DB->secureInput($_POST['txtCVEducationInstituitionTwo']) );   
     $CV_Education->setsubject ( $_DB->secureInput($_POST['txtCVEducationSubjectTwo']) );
     $CV_Education->setcgpa ( $_DB->secureInput($_POST['txtCVEducationGPATwo']) );
 
     $Education_List[]=$CV_Education;
 
+    $CV_Experience->setID ( $_DB->secureInput($_POST['txtCVExperienceIDOne']) );
     $CV_Experience->setjobname ( $_DB->secureInput($_POST['txtCVExperienceNameOne']) );   
     $CV_Experience->setjobposition ( $_DB->secureInput($_POST['txtCVExperiencePostOne']) );
     $CV_Experience->setworkingyear ( $_DB->secureInput($_POST['txtCVExperienceTimeSpanOne']) );
@@ -128,6 +133,7 @@ if(isset($_POST['request']))
 
     $Experience_List[]=$CV_Experience;
 
+    $CV_Experience->setID ( $_DB->secureInput($_POST['txtCVExperienceIDTwo']) );
     $CV_Experience->setjobname ( $_DB->secureInput($_POST['txtCVExperienceNameTwo']) );   
     $CV_Experience->setjobposition ( $_DB->secureInput($_POST['txtCVExperiencePostTwo']) );
     $CV_Experience->setworkingyear ( $_DB->secureInput($_POST['txtCVExperienceTimeSpanTwo']) );
@@ -135,11 +141,13 @@ if(isset($_POST['request']))
 
     $Experience_List[]=$CV_Experience;
 
+    $CV_Skills->setID ( $_DB->secureInput($_POST['txtCVSkillIDOne']) );
     $CV_Skills->setname ( $_DB->secureInput($_POST['txtCVSkillHeadOne']) );
     $CV_Skills->setdetails ( $_DB->secureInput($_POST['txtCVSkillDetailsOne']) );
 
     $Skills_List[]=$CV_Skills;
 
+    $CV_Skills->setID ( $_DB->secureInput($_POST['txtCVSkillIDTwo']) );
     $CV_Skills->setname ( $_DB->secureInput($_POST['txtCVSkillHeadTwo']) );
     $CV_Skills->setdetails ( $_DB->secureInput($_POST['txtCVSkillDetailsTwo']) );
 

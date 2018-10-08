@@ -363,6 +363,8 @@ class PageUtil{
     public static $JOB_CV_CREATE='job_cv_create.php';
     public static $JOB_CV_SHOW='job_cv_show.php'; 
     public static $JOB_CV_UPDATE='job_cv_update.php';         
+    public static $JOB_MY_APPLICATION='job_my_application.php'; 
+    public static $JOB_ALL_APPLICATION='job_all_application.php'; 
 
 }
 
@@ -509,7 +511,9 @@ class RouteUtil{
          self::$s_Routes[PageUtil::$JOB_CV_CREATE]  =   "modules/job/ui/view.job_cv_create.inc";
          self::$s_Routes[PageUtil::$JOB_CV_SHOW]  =   "modules/job/ui/view.job_cv_show.inc";
          self::$s_Routes[PageUtil::$JOB_CV_UPDATE]  =   "modules/job/ui/view.job_cv_update.inc";
-      
+         self::$s_Routes[PageUtil::$JOB_MY_APPLICATION]  =   "modules/job/ui/view.job_my_application.inc";
+         self::$s_Routes[PageUtil::$JOB_ALL_APPLICATION]  =   "modules/job/ui/view.job_all_application.inc";
+
     }
 
     public static function getInstance() {
@@ -640,8 +644,8 @@ class MiddlewareUtil{
          self::$s_Routes[PageUtil::$JOB_CV_CREATE]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$JOB_CV_SHOW]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$JOB_CV_UPDATE]   =  PageUtil::$LOGIN ;
-   
-   
+         self::$s_Routes[PageUtil::$JOB_MY_APPLICATION]   =  PageUtil::$LOGIN ;
+         self::$s_Routes[PageUtil::$JOB_ALL_APPLICATION]   =  PageUtil::$LOGIN ;
     }
 
     public static function getInstance() {
@@ -781,6 +785,7 @@ function every_one_has_access($page){
     $All_Access_Pages[PageUtil::$LOGOUT]= PageUtil::$LOGOUT;
     $All_Access_Pages[PageUtil::$HOME]= PageUtil::$HOME;
     $All_Access_Pages[PageUtil::$PRINT_REGISTRATION]= PageUtil::$PRINT_REGISTRATION;
+    $All_Access_Pages[PageUtil::$JOB_CV_SHOW]= PageUtil::$JOB_CV_SHOW;
 
 
     if (array_key_exists($page, $All_Access_Pages))
@@ -799,6 +804,7 @@ function no_layout_page($page){
     $All_Access_Pages[PageUtil::$PRINT_REGISTRATION]= PageUtil::$PRINT_REGISTRATION;
     $All_Access_Pages[PageUtil::$USER_NEW]= PageUtil::$USER_NEW;
     $All_Access_Pages[PageUtil::$USER_FORGOT_PASSWORD]=PageUtil::$USER_FORGOT_PASSWORD;
+    $All_Access_Pages[PageUtil::$JOB_CV_SHOW]=PageUtil::$JOB_CV_SHOW;
 
 
 
