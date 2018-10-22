@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 08, 2018 at 04:36 PM
+-- Generation Time: Oct 22, 2018 at 03:42 AM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -36,14 +36,15 @@ CREATE TABLE IF NOT EXISTS `jms_applicant` (
   `cvID` varchar(100) NOT NULL,
   `SubmissionDate` datetime NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_applicant`
 --
 
 INSERT INTO `jms_applicant` (`ID`, `applicantID`, `JobID`, `cvID`, `SubmissionDate`) VALUES
-(9, 'hbappy79@gmail.com', '2', '1', '2018-08-13 05:03:17');
+(9, 'hbappy79@gmail.com', '2', '7', '2018-08-13 05:03:17'),
+(11, 'mkazi078@uottawa.ca', '2', '8', '2018-10-09 11:22:29');
 
 -- --------------------------------------------------------
 
@@ -62,14 +63,14 @@ CREATE TABLE IF NOT EXISTS `jms_cv` (
   `profile` varchar(500) NOT NULL,
   `technical_skill` varchar(500) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv`
 --
 
 INSERT INTO `jms_cv` (`ID`, `applicantID`, `Name`, `sector`, `email`, `phone`, `profile`, `technical_skill`) VALUES
-(2, 'mkazi078@uottawa.ca', 'Anam Islam', 'Web Designer', 'anamislam000@gmail.com', '(+880) 1965-259845', 'Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change. ', '  XHTML,CSS,Javascript,Jquery,PHP,CVS / Subversion,OS X,Linux,Windows'),
+(8, 'mkazi078@uottawa.ca', 'Anam Islam', 'Web Designer', 'anamislam000@gmail.com', '(+880) 1965-259846', 'Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change.', 'XHTML,CSS,Javascript,Jquery,PHP,CVS / Subversion,OS X,Linux,Windows'),
 (7, 'hbappy79@gmail.com', 'dfg', 'dfgh', 'dfgdfg@gmail.com', 'ghfgbh', 'dgbdb', 'xfgvxgvxv');
 
 -- --------------------------------------------------------
@@ -86,15 +87,15 @@ CREATE TABLE IF NOT EXISTS `jms_cv_education` (
   `subject` varchar(45) NOT NULL,
   `cgpa` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv_education`
 --
 
 INSERT INTO `jms_cv_education` (`ID`, `cvID`, `instituition`, `subject`, `cgpa`) VALUES
-(1, 2, 'Jessore Zilla School, Jessore', 'Science ', '5.0'),
-(2, 2, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0'),
+(10, 8, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0'),
+(9, 8, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0'),
 (8, 7, 'xfgvbxvb', 'versity', 'xfgvbxgv'),
 (7, 7, 'xfgvbxvb', 'versity', 'xfgvbxgv');
 
@@ -113,15 +114,15 @@ CREATE TABLE IF NOT EXISTS `jms_cv_experience` (
   `workingyear` varchar(45) NOT NULL,
   `workdetails` varchar(500) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv_experience`
 --
 
 INSERT INTO `jms_cv_experience` (`ID`, `cvID`, `jobname`, `jobposition`, `workingyear`, `workdetails`) VALUES
-(1, 2, 'Facebook', 'Senior Interface Designer', '2005-2007', 'Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. '),
-(2, 2, 'Samsung Inc.', 'Senior Interface Designer', '2005-2007', 'Progressively reconceptualize multifunctional \"outside the box\" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits. '),
+(10, 8, 'Samsung Inc.', 'Senior Interface Designer', '2005-2007', 'Progressively reconceptualize multifunctional \"outside the box\" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.'),
+(9, 8, 'Samsung Inc.', 'Senior Interface Designer', '2005-2007', 'Progressively reconceptualize multifunctional \"outside the box\" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.'),
 (8, 7, 'xfgvbxv', 'xgvxv', 'fxgbgvx', 'xgbvxgbv'),
 (7, 7, 'xfgvbxv', 'xgvxv', 'fxgbgvx', 'xgbvxgbv');
 
@@ -138,15 +139,15 @@ CREATE TABLE IF NOT EXISTS `jms_cv_skills` (
   `name` varchar(100) NOT NULL,
   `details` varchar(500) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv_skills`
 --
 
 INSERT INTO `jms_cv_skills` (`ID`, `cvID`, `name`, `details`) VALUES
-(1, 2, 'Web Design', 'Assertively exploit wireless initiatives rather than synergistic core competencies.'),
-(2, 2, 'Interface Design', 'Credibly streamline mission-critical value with multifunctional functionalities. '),
+(10, 8, 'Interface Design', 'Credibly streamline mission-critical value with multifunctional functionalities.'),
+(9, 8, 'Interface Design', 'Credibly streamline mission-critical value with multifunctional functionalities.'),
 (8, 7, 'dfgbfgbv', 'xdfgvxv'),
 (7, 7, 'dfgbfgbv', 'xdfgvxv');
 

@@ -365,6 +365,7 @@ class PageUtil{
     public static $JOB_CV_UPDATE='job_cv_update.php';         
     public static $JOB_MY_APPLICATION='job_my_application.php'; 
     public static $JOB_ALL_APPLICATION='job_all_application.php'; 
+    public static $JOB_SINGLE_DETAILS='job_single_details.php'; 
 
 }
 
@@ -513,6 +514,7 @@ class RouteUtil{
          self::$s_Routes[PageUtil::$JOB_CV_UPDATE]  =   "modules/job/ui/view.job_cv_update.inc";
          self::$s_Routes[PageUtil::$JOB_MY_APPLICATION]  =   "modules/job/ui/view.job_my_application.inc";
          self::$s_Routes[PageUtil::$JOB_ALL_APPLICATION]  =   "modules/job/ui/view.job_all_application.inc";
+         self::$s_Routes[PageUtil::$JOB_SINGLE_DETAILS]  =   "modules/job/ui/view.job_single_details.inc";
 
     }
 
@@ -646,6 +648,7 @@ class MiddlewareUtil{
          self::$s_Routes[PageUtil::$JOB_CV_UPDATE]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$JOB_MY_APPLICATION]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$JOB_ALL_APPLICATION]   =  PageUtil::$LOGIN ;
+         self::$s_Routes[PageUtil::$JOB_SINGLE_DETAILS]   =  PageUtil::$LOGIN ;
     }
 
     public static function getInstance() {

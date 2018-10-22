@@ -8,9 +8,14 @@ include_once COMMON.'class.common.inc';
 <div class="panel-default">
     <div class="panel-body">
     	<?php
-    		$globalUser = '';
-			$globalUser = $_SESSION["globalUser"];
-			$Result = $_JobCVShowBAO->getCV($globalUser->getID());
+    		if(isset($_SESSION['cvid'])){
+    			$Result = $_JobCVShowBAO->getCV($_SESSION['cvid']);
+    		}
+    		else{
+	    		$globalUser = '';
+				$globalUser = $_SESSION["globalUser"];
+				$Result = $_JobCVShowBAO->getCV($globalUser->getID());
+			}
 			//if DAO access is successful to load all the Jobs then show them one by one
 			if($Result->getIsSuccess()){
 				$CV = $Result->getResultObject();

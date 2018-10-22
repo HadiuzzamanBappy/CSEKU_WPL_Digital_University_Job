@@ -88,5 +88,15 @@ Class JobListBAO{
 
 		return $Result;
 	}
+	//update an user object based on its current information
+	public function getJobDetails($Job){
+		$Result = new Result();	
+		$Result = $this->_JobListDAO->getJobDetails($Job);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in UserDAO.readUserDetails()");		
+
+		return $Result;
+	}
 }
 ?>
