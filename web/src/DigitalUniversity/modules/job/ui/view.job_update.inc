@@ -206,8 +206,6 @@ include_once COMMON.'class.common.inc';
 						<th>Sub-Title</th>
 						<th>Publish Date</th>
 						<th>Organization</th>
-						<!-- <th>Employment Type</th>
-						<th>Education Qualification</th> -->
 						<th>-----</th>
 						<th>Gender</th>
 						<th>Age Limit</th>
@@ -228,8 +226,6 @@ include_once COMMON.'class.common.inc';
 						    <td><?php echo $Job->getSubtitle(); ?></td>
 						    <td><?php echo $Job->getPublishDate(); ?></td>
 						    <td><?php echo $Job->getOrganization(); ?></td>
-						    <!-- <td><?php echo $Job->getEmploymentType(); ?></td>
-						    <td><?php echo $Job->getQualification(); ?></td> -->
 						    <td>-----</td>
 						    <td><?php echo $Job->getGender(); ?></td>
 						    <td><?php echo $Job->getAgeLimit(); ?></td>

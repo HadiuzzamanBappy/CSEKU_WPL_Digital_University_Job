@@ -14,7 +14,7 @@ if(isset($_GET['details']))
 
 	$Job = new Job();	
 	$Job->setID($_GET['details']);	
-	$Job=$_JobListBAO->getJobDetails($Job)->getResultObject();//reading the user object from the result object
+	$Job=$_JobListBAO->readJobPositions($Job)->getResultObject();//reading the user object from the result object
 }
 
 /* deleting an existing user */

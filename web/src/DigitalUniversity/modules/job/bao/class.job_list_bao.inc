@@ -4,9 +4,6 @@ include_once UTILITY.'class.util.inc';
 include_once MODULES_JOB.'dao/class.job_list_dao.inc';
 
 
-/*
-	User Business Object 
-*/
 Class JobListBAO{
 
 	private $_DB;
@@ -18,7 +15,6 @@ Class JobListBAO{
 
 	}
 
-	//get all users value
 	public function getAllJobs(){
 
 		$Result = new Result();	
@@ -29,7 +25,6 @@ Class JobListBAO{
 
 		return $Result;
 	}
-	//read an user with role information object based on its id form user object
 	public function readJobPositions($Job){
 
 
@@ -43,7 +38,6 @@ Class JobListBAO{
 
 
 	}
-		//delete an existing user
 	public function deleteJob($Job){
 
 		$Result = new Result();	
@@ -55,7 +49,6 @@ Class JobListBAO{
 		return $Result;
 
 	}
-	//update an user object based on its current information
 	public function updateJobRequest($Job){
 
 		$Result = new Result();	
@@ -67,7 +60,6 @@ Class JobListBAO{
 		return $Result;
 	}
 
-	//update an user object based on its current information
 	public function checkForCV($UserDetails){
 		$Result = new Result();	
 		$Result = $this->_JobListDAO->checkForCV($UserDetails);
@@ -78,7 +70,6 @@ Class JobListBAO{
 		return $Result;
 	}
 
-	//update an user object based on its current information
 	public function applyJob($Applicant){
 		$Result = new Result();	
 		$Result = $this->_JobListDAO->applyJob($Applicant);
@@ -88,7 +79,6 @@ Class JobListBAO{
 
 		return $Result;
 	}
-	//update an user object based on its current information
 	public function getJobDetails($Job){
 		$Result = new Result();	
 		$Result = $this->_JobListDAO->getJobDetails($Job);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 22, 2018 at 03:42 AM
+-- Generation Time: Oct 28, 2018 at 05:16 PM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `jms_applicant` (
   `cvID` varchar(100) NOT NULL,
   `SubmissionDate` datetime NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_applicant`
@@ -44,7 +44,9 @@ CREATE TABLE IF NOT EXISTS `jms_applicant` (
 
 INSERT INTO `jms_applicant` (`ID`, `applicantID`, `JobID`, `cvID`, `SubmissionDate`) VALUES
 (9, 'hbappy79@gmail.com', '2', '7', '2018-08-13 05:03:17'),
-(11, 'mkazi078@uottawa.ca', '2', '8', '2018-10-09 11:22:29');
+(11, 'mkazi078@uottawa.ca', '2', '8', '2018-10-09 11:22:29'),
+(12, 'hbappy79@gmail.com', '3', '9', '2018-10-22 07:48:25'),
+(13, 'mkazi078@uottawa.ca', '3', '8', '2018-10-23 01:28:26');
 
 -- --------------------------------------------------------
 
@@ -63,15 +65,15 @@ CREATE TABLE IF NOT EXISTS `jms_cv` (
   `profile` varchar(500) NOT NULL,
   `technical_skill` varchar(500) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv`
 --
 
 INSERT INTO `jms_cv` (`ID`, `applicantID`, `Name`, `sector`, `email`, `phone`, `profile`, `technical_skill`) VALUES
-(8, 'mkazi078@uottawa.ca', 'Anam Islam', 'Web Designer', 'anamislam000@gmail.com', '(+880) 1965-259846', 'Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change.', 'XHTML,CSS,Javascript,Jquery,PHP,CVS / Subversion,OS X,Linux,Windows'),
-(7, 'hbappy79@gmail.com', 'dfg', 'dfgh', 'dfgdfg@gmail.com', 'ghfgbh', 'dgbdb', 'xfgvxgvxv');
+(9, 'hbappy79@gmail.com', 'Hadiuzzaman Bappy', 'Android Developer', 'hbappy79@gmail.com', '01325645897', 'Designing and developing advanced applications for the Android platform.', 'css,html,java,c,cpp'),
+(17, 'mkazi078@uottawa.ca', 'Kazi Masudul Alam', 'Web Designer', 'mkazi078@uottawa.ca', '(+880) 1965-259846', 'Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change.', 'XHTML,CSS,Javascript,Jquery,PHP,CVS / Subversion,OS X,Linux,Windows');
 
 -- --------------------------------------------------------
 
@@ -87,17 +89,16 @@ CREATE TABLE IF NOT EXISTS `jms_cv_education` (
   `subject` varchar(45) NOT NULL,
   `cgpa` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv_education`
 --
 
 INSERT INTO `jms_cv_education` (`ID`, `cvID`, `instituition`, `subject`, `cgpa`) VALUES
-(10, 8, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0'),
-(9, 8, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0'),
-(8, 7, 'xfgvbxvb', 'versity', 'xfgvbxgv'),
-(7, 7, 'xfgvbxvb', 'versity', 'xfgvbxgv');
+(29, 17, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0'),
+(11, 9, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0'),
+(30, 17, 'Khulna University - Khulna', 'Computer Science and Engineering Displine', '4.0');
 
 -- --------------------------------------------------------
 
@@ -114,17 +115,16 @@ CREATE TABLE IF NOT EXISTS `jms_cv_experience` (
   `workingyear` varchar(45) NOT NULL,
   `workdetails` varchar(500) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv_experience`
 --
 
 INSERT INTO `jms_cv_experience` (`ID`, `cvID`, `jobname`, `jobposition`, `workingyear`, `workdetails`) VALUES
-(10, 8, 'Samsung Inc.', 'Senior Interface Designer', '2005-2007', 'Progressively reconceptualize multifunctional \"outside the box\" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.'),
-(9, 8, 'Samsung Inc.', 'Senior Interface Designer', '2005-2007', 'Progressively reconceptualize multifunctional \"outside the box\" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.'),
-(8, 7, 'xfgvbxv', 'xgvxv', 'fxgbgvx', 'xgbvxgbv'),
-(7, 7, 'xfgvbxv', 'xgvxv', 'fxgbgvx', 'xgbvxgbv');
+(11, 9, 'Data Scientist', 'Coder', '2015-016', 'Created machine learning models with Python and scikit-learn to predict energy usage of commercial buildings with 98% accuracy'),
+(25, 17, 'Samsung Inc.', 'Senior Interface Designer', '2005-2007', 'Progressively reconceptualize multifunctional \"outside the box\" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.'),
+(12, 9, 'Data Scientist', 'Coder', '2015-016', 'Created machine learning models with Python and scikit-learn to predict energy usage of commercial buildings with 98% accuracy');
 
 -- --------------------------------------------------------
 
@@ -139,17 +139,17 @@ CREATE TABLE IF NOT EXISTS `jms_cv_skills` (
   `name` varchar(100) NOT NULL,
   `details` varchar(500) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_cv_skills`
 --
 
 INSERT INTO `jms_cv_skills` (`ID`, `cvID`, `name`, `details`) VALUES
-(10, 8, 'Interface Design', 'Credibly streamline mission-critical value with multifunctional functionalities.'),
-(9, 8, 'Interface Design', 'Credibly streamline mission-critical value with multifunctional functionalities.'),
-(8, 7, 'dfgbfgbv', 'xdfgvxv'),
-(7, 7, 'dfgbfgbv', 'xdfgvxv');
+(31, 17, 'Interface Design', 'Credibly streamline mission-critical value with multifunctional functionalities.'),
+(30, 17, 'Interface Design', 'Credibly streamline mission-critical value with multifunctional functionalities.'),
+(11, 9, 'UI maker', 'Strong knowledge of Android UI design principles, patterns, and best practices'),
+(12, 9, 'UI maker', 'Strong knowledge of Android UI design principles, patterns, and best practices');
 
 -- --------------------------------------------------------
 
@@ -176,14 +176,15 @@ CREATE TABLE IF NOT EXISTS `jms_job` (
   `JobExperience` varchar(45) DEFAULT NULL,
   `LastDateOfApplication` date NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jms_job`
 --
 
 INSERT INTO `jms_job` (`ID`, `Title`, `Subtitle`, `PublishDate`, `Organization`, `Qualification`, `Gender`, `AgeLimit`, `EmploymentType`, `NumberOfVacancy`, `Email`, `ContactNumber`, `Salary`, `Location`, `JobExperience`, `LastDateOfApplication`) VALUES
-(2, 'Lecturer', 'This job position is experience, talented of to the University authority', '2018-08-10', 'Khulna University', 'H.S.C 5.0 + S.S.C 4.0', 'Male', '32', 'Permanent', 2, 'hbappy79@gmail.com', '01325659875', '65000', 'Khulna, Bangladesh', '2 years of teaching', '2018-08-23');
+(2, 'Lecturer', 'This job position is experience, talented of to the University authority', '2018-08-10', 'Khulna University', 'H.S.C 5.0 + S.S.C 4.0', 'Male', '32', 'Permanent', 2, 'hbappy79@gmail.com', '01325659875', '65000', 'Khulna, Bangladesh', '2 years of teaching', '2018-08-23'),
+(3, 'Librarian', 'a job post for seminar library,cse corridor', '2018-10-22', 'Khulna University', 'Honors pass', 'Anyone', '30', 'Full Time', 2, 'mkazi078@uottawa.ca', '01932056403', '25000', 'CSE,Khulna University', '-', '2018-10-31');
 
 -- --------------------------------------------------------
 

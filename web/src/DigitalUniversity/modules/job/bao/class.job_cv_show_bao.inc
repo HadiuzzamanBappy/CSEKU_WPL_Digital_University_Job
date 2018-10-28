@@ -4,9 +4,6 @@ include_once UTILITY.'class.util.inc';
 include_once MODULES_JOB.'dao/class.job_cv_show_dao.inc';
 
 
-/*
-	User Business Object 
-*/
 Class JobCVShowBAO{
 
 	private $_DB;
@@ -18,7 +15,6 @@ Class JobCVShowBAO{
 
 	}
 
-	//get all users value
 	public function getCV($globalUser){
 
 		$Result = new Result();	

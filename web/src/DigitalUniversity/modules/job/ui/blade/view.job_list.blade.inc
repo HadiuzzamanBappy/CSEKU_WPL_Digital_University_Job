@@ -8,15 +8,14 @@ $_DB = DBUtil::getInstance();
 $_Log= LogUtil::getInstance();
 $_JobListBAO = new JobListBAO();
 
-/* reading an existing user information */
+// editing a job information
 if(isset($_GET['edit']))
 {
 	$Job = new Job();	
 	$Job->setID($_GET['edit']);	
 	$globalJob = $_JobListBAO->readJobPositions($Job)->getResultObject(); 
-	//reading the user object from the result object
 }
-/* deleting an existing user */
+/* deleting an existing Job information */
 if(isset($_GET['del']))
 {
 
@@ -26,7 +25,7 @@ if(isset($_GET['del']))
 
 	header("Location:".PageUtil::$JOB_UPDATE);
 }
-/*updating an existing user information*/
+/*updating an existing job information*/
 if(isset($_POST['update']))
 {
 	$Job = new Job();
@@ -65,7 +64,7 @@ if(isset($_POST['update']))
 
 	header("Location:".PageUtil::$JOB_UPDATE);
 }
-/* deleting an existing user */
+//appling for a job
 if(isset($_GET['apply']))
 {
 	$globalUser = '';
@@ -83,7 +82,7 @@ if(isset($_GET['apply']))
 		$datetime = new DateTime('now', new DateTimezone('Asia/Dhaka'));
 		$Applicant->setSubmissionDate($datetime->format('Y-m-d h:i:s'));
 
-		$Result_new=$_JobListBAO->applyJob($Applicant); //reading the user object from the result object
+		$Result_new=$_JobListBAO->applyJob($Applicant); //reading the job object from the result object
 		if($Result_new->getIsSuccess()){
 			echo '<script type="text/javascript">',
      				'alert("'.$Result_new->getResultObject().'");',

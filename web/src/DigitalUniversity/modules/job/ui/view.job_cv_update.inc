@@ -24,13 +24,6 @@ include_once COMMON.'class.common.inc';
 				<input type="hidden" name="txtCVID" class="form-control" value="<?php echo $CV->getID(); ?>"/>
 
 				<div class="form-group">
-	              	<label class="control-label col-sm-4" for="txtCVName">Name**:</label>
-	              	<div class="col-sm-6">
-	              		<input type="text" name="txtCVName" class="form-control" placeholder="Your full name here" value="<?php echo $CV->getName(); ?>" required/>
-				  	</div>
-				</div>
-
-				<div class="form-group">
 	              	<label class="control-label col-sm-4" for="txtCVSector">Your Proficient Sector**:</label>
 	              	<div class="col-sm-6">
 	              		<input type="text" name="txtCVSector" class="form-control" placeholder="Give a good title of your efficiency" value="<?php echo $CV->getsector(); ?>" required/>
@@ -58,20 +51,29 @@ include_once COMMON.'class.common.inc';
 					</div>
 				</div>
 
-				<div class="form-group">
-	              	<label class="control-label col-sm-4" for="txtCVSkillheadOne">Skill Set:</label>
-	              	<div class="col-sm-6">
-	              		<input type="hidden" name="txtCVSkillIDOne" class="form-control" value="<?php echo $CV->getskills()[0]->getID(); ?>"/>
-	              		<input type="text" name="txtCVSkillHeadOne" class="form-control" placeholder="Skill header 1" value="<?php echo $CV->getskills()[0]->getname(); ?>"/>	
-						<textarea name="txtCVSkillDetailsOne" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Skill description 1" ><?php echo $CV->getskills()[0]->getdetails(); ?></textarea>
+					<div class="form-group">
+		              	<label class="control-label col-sm-4" for="txtCVSkillheadOne">Skill Set:</label>
+		              	<div class="col-sm-6">
+		              		<input type="hidden" id="skillnumber" name="skillnumber" class="form-control" value="<?php echo sizeof($CV->getskills()); ?>"/>
+		              		<?php
+							for($i = 0; $i < sizeof($CV->getskills()); $i++) {
+								?>
+			              		<input type="text" name="<?php echo 'txtCVSkillHead_'.$i; ?>" class="form-control" placeholder="Skill header 1" value="<?php echo $CV->getskills()[$i]->getname(); ?>"/>	
+								<textarea name="<?php echo 'txtCVSkillDetails_'.$i; ?>" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Skill description 1" ><?php echo $CV->getskills()[$i]->getdetails(); ?></textarea>
 
-						<br>
+								<br>
+							<?php
+								}
+							?>
+							<div id="skillset"></div>
 
-						<input type="hidden" name="txtCVSkillIDTwo" class="form-control" value="<?php echo $CV->getskills()[1]->getID(); ?>"/>
-						<input type="text" name="txtCVSkillHeadTwo" class="form-control" placeholder="Skill header 2" value="<?php echo $CV->getskills()[1]->getname(); ?>" />
-						<textarea name="txtCVSkillDetailsTwo" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Skill description 2"><?php echo $CV->getskills()[1]->getdetails(); ?></textarea>
+							<div class="form-group">        
+				              	<div class="col-sm-offset-2 col-sm-10">
+									<input type="button" value="Add more" onclick="addskill()"/>
+							    </div>
+				            </div>
+						</div>
 					</div>
-				</div>
 
 				<div class="form-group">
 	              	<label class="control-label col-sm-4" for="txtCVTechnicalSkills">Technical Skill Set**(Max-500words)**:</label>
@@ -79,45 +81,54 @@ include_once COMMON.'class.common.inc';
 						<textarea name="txtCVTechnicalSkills" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Such as.. XHTML,CSS,Javascript,Jquery" required><?php echo $CV->gettechnical_skill(); ?></textarea>
 					</div>
 				</div>
-
 				<div class="form-group">
 	              	<label class="control-label col-sm-4" for="txtCVExperienceNameOne">Experience:</label>
 	              	<div class="col-sm-6">
+	              		<input type="hidden" name="experiencenumber" id="experiencenumber" class="form-control" value="<?php echo sizeof($CV->getexperience()); ?>"/>
+	              		<?php
+						for($i = 0; $i < sizeof($CV->getexperience()); $i++) {
+							?>
+		              		<input type="text" name="<?php echo 'txtCVExperienceName_'.$i; ?>" class="form-control" placeholder="Experience Proffession Name" value="<?php echo $CV->getexperience()[$i]->getjobname(); ?>"/>	
+		              		<input type="text" name="<?php echo 'txtCVExperiencePost_'.$i; ?>" class="form-control" placeholder="Experience Proffession Post" value="<?php echo $CV->getexperience()[$i]->getjobposition(); ?>"/>	
+		              		<input type="text" name="<?php echo 'txtCVExperienceTimeSpan_'.$i; ?>" class="form-control" placeholder="Experience Proffession Time Span such as = 2007-2009" value="<?php echo $CV->getexperience()[$i]->getworkingyear(); ?>"/>	
+							<textarea name="<?php echo 'txtCVExperienceDetails_'.$i; ?>" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Experience Proffession description"><?php echo $CV->getexperience()[$i]->getworkdetails(); ?></textarea>
 
-	              		<input type="hidden" name="txtCVExperienceIDOne" class="form-control" value="<?php echo $CV->getexperience()[0]->getID(); ?>"/>
-	              		<input type="text" name="txtCVExperienceNameOne" class="form-control" placeholder="Experience Proffession Name 1" value="<?php echo $CV->getexperience()[0]->getjobname(); ?>"/>	
-	              		<input type="text" name="txtCVExperiencePostOne" class="form-control" placeholder="Experience Proffession Post 1" value="<?php echo $CV->getexperience()[0]->getjobposition(); ?>"/>	
-	              		<input type="text" name="txtCVExperienceTimeSpanOne" class="form-control" placeholder="Experience Proffession Time Span 1 such as = 2007-2009" value="<?php echo $CV->getexperience()[0]->getworkingyear(); ?>"/>	
-						<textarea name="txtCVExperienceDetailsOne" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Experience Proffession description 1"><?php echo $CV->getexperience()[0]->getworkdetails(); ?></textarea>
+							<br>
+						<?php
+							}
+						?>
+						<div id="experienceset"></div>
 
-						<br>
-
-						<input type="hidden" name="txtCVExperienceIDTwo" class="form-control" value="<?php echo $CV->getexperience()[1]->getID(); ?>"/>
-						<input type="text" name="txtCVExperienceNameTwo" class="form-control" placeholder="Experience Proffession Name 2" value="<?php echo $CV->getexperience()[1]->getjobname(); ?>"/>
-						<input type="text" name="txtCVExperiencePostTwo" class="form-control" placeholder="Experience Proffession Post 2" value="<?php echo $CV->getexperience()[1]->getjobposition(); ?>"/>
-						<input type="text" name="txtCVExperienceTimeSpanTwo" class="form-control" placeholder="Experience Proffession Time Span 2 such as = 2007-2009" value="<?php echo $CV->getexperience()[1]->getworkingyear(); ?>"/>
-						<textarea name="txtCVExperienceDetailsTwo" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Experience Proffession description 2"><?php echo $CV->getexperience()[1]->getworkdetails(); ?></textarea>
+						<div class="form-group">        
+			              	<div class="col-sm-offset-2 col-sm-10">
+								<input type="button" value="Add more" onclick="addexperience()"/>
+						    </div>
+			            </div>
 					</div>
 				</div>
-
 				<div class="form-group">
-	              	<label class="control-label col-sm-4" for="txtCVEducationInstituitionOne">Education**:</label>
+	              	<label class="control-label col-sm-4" for="txtCVEducationInstituition_0">Education**:</label>
 	              	<div class="col-sm-6">
+	              		<input type="hidden" name="educationnumber" id="educationnumber" class="form-control" value="<?php echo sizeof($CV->geteducation()); ?>"/>
+	              		<?php
+						for($i = 0; $i < sizeof($CV->geteducation()); $i++) {
+							?>
+		              		<input type="text" name="<?php echo 'txtCVEducationInstituition_'.$i; ?>" class="form-control" placeholder="Experience Education Instituition" value="<?php echo $CV->geteducation()[$i]->getinstituition(); ?>"/>	
+		              		<input type="text" name="<?php echo 'txtCVEducationSubject_'.$i; ?>" class="form-control" placeholder="Experience Education Subject" value="<?php echo $CV->geteducation()[$i]->getsubject(); ?>"/>	
+		              		<input type="text" name="<?php echo 'txtCVEducationGPA_'.$i; ?>" class="form-control" placeholder="Experience Education GPA such as = 4.0" value="<?php echo $CV->geteducation()[$i]->getcgpa(); ?>"/>	
+							<br>
+						<?php
+							}
+						?>
+						<div id="educationset"></div>
 
-	              		<input type="hidden" name="txtCVEducationIDOne" class="form-control" value="<?php echo $CV->geteducation()[0]->getID(); ?>"/>
-	              		<input type="text" name="txtCVEducationInstituitionOne" class="form-control" placeholder="Experience Education Instituition 1" value="<?php echo $CV->geteducation()[0]->getinstituition(); ?>" required/>	
-	              		<input type="text" name="txtCVEducationSubjectOne" class="form-control" placeholder="Experience Education Subject 1" value="<?php echo $CV->geteducation()[0]->getsubject(); ?>" required/>	
-	              		<input type="text" name="txtCVEducationGPAOne" class="form-control" placeholder="Experience Education GPA 1 such as = 4.0" value="<?php echo $CV->geteducation()[0]->getcgpa(); ?>" required/>	
-
-						<br>
-
-						<input type="hidden" name="txtCVEducationIDTwo" class="form-control" value="<?php echo $CV->geteducation()[1]->getID(); ?>"/>
-						<input type="text" name="txtCVEducationInstituitionTwo" class="form-control" placeholder="Experience Education Instituition 2" value="<?php echo $CV->geteducation()[1]->getinstituition(); ?>" required/>	
-	              		<input type="text" name="txtCVEducationSubjectTwo" class="form-control" placeholder="Experience Education Subject 2" value="<?php echo $CV->geteducation()[1]->getsubject(); ?>" required/>	
-	              		<input type="text" name="txtCVEducationGPATwo" class="form-control" placeholder="Experience Education GPA 2 such as = 4.0" value="<?php echo $CV->geteducation()[1]->getcgpa(); ?>" required/>
+						<div class="form-group">        
+			              	<div class="col-sm-offset-2 col-sm-10">
+								<input type="button" value="Add more" onclick="addeducation()"/>
+						    </div>
+			            </div> 
 					</div>
 				</div>
-				
 		        <div class="form-group">        
 	              	<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" value="update" name="update">Update</button>

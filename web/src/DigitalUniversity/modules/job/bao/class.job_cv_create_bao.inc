@@ -3,10 +3,6 @@
 include_once UTILITY.'class.util.inc';
 include_once MODULES_JOB.'dao/class.job_cv_create_dao.inc';
 
-
-/*
-	Job Process Object 
-*/
 Class JobCVCreateBAO{
 
 	private $_DB;
@@ -18,7 +14,6 @@ Class JobCVCreateBAO{
 
 	}
 
-	//new Job post request funtion with the job object
 	public function newJobCVCreateRequest($CV){
 
 		$Result = new Result();	
@@ -31,7 +26,6 @@ Class JobCVCreateBAO{
 
 	
 	}
-	//new Job post request funtion with the job object
 	public function JobCVUpdateRequest($CV){
 
 		$Result = new Result();	
@@ -46,7 +40,5 @@ Class JobCVCreateBAO{
 	}
 
 }
-
-//$_Log->log(LogUtil::$DEBUG," exit the class.userbao.inc");
 
 ?>

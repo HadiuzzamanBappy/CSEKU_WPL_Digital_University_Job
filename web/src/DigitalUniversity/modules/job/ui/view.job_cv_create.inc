@@ -14,13 +14,6 @@ include_once COMMON.'class.common.inc';
 			<form method="post" class="form-horizontal">
 
 				<div class="form-group">
-	              	<label class="control-label col-sm-4" for="txtCVName">Name**:</label>
-	              	<div class="col-sm-6">
-	              		<input type="text" name="txtCVName" class="form-control" placeholder="Your full name here" required/>
-				  	</div>
-				</div>
-
-				<div class="form-group">
 	              	<label class="control-label col-sm-4" for="txtCVSector">Your Proficient Sector**:</label>
 	              	<div class="col-sm-6">
 	              		<input type="text" name="txtCVSector" class="form-control" placeholder="Give a good title of your efficiency" required/>
@@ -49,15 +42,21 @@ include_once COMMON.'class.common.inc';
 				</div>
 
 				<div class="form-group">
-	              	<label class="control-label col-sm-4" for="txtCVSkillheadOne">Skill Set 1:</label>
+	              	<label class="control-label col-sm-4" for="txtCVSkillheadOne">Skill Set:</label>
 	              	<div class="col-sm-6">
-	              		<input type="text" name="txtCVSkillHeadOne" class="form-control" placeholder="Skill header 1"/>	
-						<textarea name="txtCVSkillDetailsOne" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Skill description 1"></textarea>
 
-						<br>
+	              		<input type="hidden" id="skillnumber" name="skillnumber" class="form-control" value="0"/>
 
-						<input type="text" name="txtCVSkillHeadTwo" class="form-control" placeholder="Skill header 2"/>
-						<textarea name="txtCVSkillDetailsTwo" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Skill description 2"></textarea>
+	              		<input type="text" name="txtCVSkillHead_0" class="form-control" placeholder="Skill header"/>	
+						<textarea name="txtCVSkillDetails_0" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Skill description"></textarea>
+
+						<div id="skillset"></div>
+
+						<div class="form-group">        
+			              	<div class="col-sm-offset-2 col-sm-10">
+								<input type="button" value="Add more" onclick="addskill()"/>
+						    </div>
+			            </div> 
 					</div>
 				</div>
 
@@ -71,32 +70,41 @@ include_once COMMON.'class.common.inc';
 				<div class="form-group">
 	              	<label class="control-label col-sm-4" for="txtCVExperienceNameOne">Experience:</label>
 	              	<div class="col-sm-6">
-	              		<input type="text" name="txtCVExperienceNameOne" class="form-control" placeholder="Experience Proffession Name 1"/>	
-	              		<input type="text" name="txtCVExperiencePostOne" class="form-control" placeholder="Experience Proffession Post 1"/>	
-	              		<input type="text" name="txtCVExperienceTimeSpanOne" class="form-control" placeholder="Experience Proffession Time Span 1 such as = 2007-2009"/>	
-						<textarea name="txtCVExperienceDetailsOne" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Experience Proffession description 1"></textarea>
 
-						<br>
+	              		<input type="hidden" name="experiencenumber" id="experiencenumber" class="form-control" value="0"/>
 
-						<input type="text" name="txtCVExperienceNameTwo" class="form-control" placeholder="Experience Proffession Name 2"/>
-						<input type="text" name="txtCVExperiencePostTwo" class="form-control" placeholder="Experience Proffession Post 2"/>
-						<input type="text" name="txtCVExperienceTimeSpanTwo" class="form-control" placeholder="Experience Proffession Time Span 2 such as = 2007-2009"/>
-						<textarea name="txtCVExperienceDetailsTwo" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Experience Proffession description 2"></textarea>
+	              		<input type="text" name="txtCVExperienceName_0" class="form-control" placeholder="Experience Proffession Name"/>	
+	              		<input type="text" name="txtCVExperiencePost_0" class="form-control" placeholder="Experience Proffession Post"/>	
+	              		<input type="text" name="txtCVExperienceTimeSpan_0" class="form-control" placeholder="Experience Proffession Time Span such as = 2007-2009"/>	
+						<textarea name="txtCVExperienceDetails_0" class="form-control" rows="4" cols="50" maxlength="500" placeholder="Experience Proffession description"></textarea>
+
+						<div id="experienceset"></div>
+
+						<div class="form-group">        
+			              	<div class="col-sm-offset-2 col-sm-10">
+								<input type="button" value="Add more" onclick="addexperience()"/>
+						    </div>
+			            </div> 
 					</div>
 				</div>
 
 				<div class="form-group">
 	              	<label class="control-label col-sm-4" for="txtCVEducationInstituitionOne">Education**:</label>
 	              	<div class="col-sm-6">
-	              		<input type="text" name="txtCVEducationInstituitionOne" class="form-control" placeholder="Experience Education Instituition 1" required/>	
-	              		<input type="text" name="txtCVEducationSubjectOne" class="form-control" placeholder="Experience Education Subject 1" required/>	
-	              		<input type="text" name="txtCVEducationGPAOne" class="form-control" placeholder="Experience Education GPA 1 such as = 4.0" required/>	
 
-						<br>
+	              		<input type="hidden" name="educationnumber" id="educationnumber" class="form-control" value="0"/>
 
-						<input type="text" name="txtCVEducationInstituitionTwo" class="form-control" placeholder="Experience Education Instituition 2" required/>	
-	              		<input type="text" name="txtCVEducationSubjectTwo" class="form-control" placeholder="Experience Education Subject 2" required/>	
-	              		<input type="text" name="txtCVEducationGPATwo" class="form-control" placeholder="Experience Education GPA 2 such as = 4.0" required/>
+	              		<input type="text" name="txtCVEducationInstituition_0" class="form-control" placeholder="Experience Education Instituition" required/>	
+	              		<input type="text" name="txtCVEducationSubject_0" class="form-control" placeholder="Experience Education Subject" required/>	
+	              		<input type="text" name="txtCVEducationGPA_0" class="form-control" placeholder="Experience Education GPA such as = 4.0" required/>	
+
+						<div id="educationset"></div>
+
+						<div class="form-group">        
+			              	<div class="col-sm-offset-2 col-sm-10">
+								<input type="button" value="Add more" onclick="addeducation()"/>
+						    </div>
+			            </div> 
 					</div>
 				</div>
 				

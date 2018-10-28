@@ -21,11 +21,17 @@ Class JobCVCreateDAO{
 		$this->_CV_Skills = new CV_Skills();
 	}
 
-	//create new job request with the job object
 	public function newJobCVCreateRequest($CV){
 
 		$applicantID=$CV->getapplicantID(); 
-		$Name=$CV->getName(); 
+
+		$this->_DB->doQuery("SELECT * FROM ums_user where ID like '$applicantID'");
+
+		$rows = $this->_DB->getAllRows();
+
+		$row = $rows[0];
+
+		$Name=$row['FirstName'].' '.$row['MiddleName'].' '.$row['LastName']; 
 		$sector=$CV->getsector(); 
 		$email=$CV->getemail(); 
 		$phone=$CV->getphone(); 
@@ -125,12 +131,17 @@ Class JobCVCreateDAO{
 		return $Result;
 	}
 
-	//create new job request with the job object
 	public function JobCVUpdateRequest($CV){
 
 		$ID=$CV->getID();
 		$applicantID=$CV->getapplicantID(); 
-		$Name=$CV->getName(); 
+		$this->_DB->doQuery("SELECT * FROM ums_user where ID like '$applicantID'");
+
+		$rows = $this->_DB->getAllRows();
+
+		$row = $rows[0];
+
+		$Name=$row['FirstName'].' '.$row['MiddleName'].' '.$row['LastName'];
 		$sector=$CV->getsector(); 
 		$email=$CV->getemail(); 
 		$phone=$CV->getphone(); 
@@ -234,7 +245,7 @@ Class JobCVCreateDAO{
 
 	 	$Result = new Result();
 		$Result->setIsSuccess(1);
-		$Result->setResultObject("New CV dropped Successfully.");
+		$Result->setResultObject("CV Updated Successfully.");
 		return $Result;
 	}
 

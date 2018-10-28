@@ -21,7 +21,6 @@ Class JobCVShowDAO{
 		$this->_CV_Experience = new CV_Experience();
 		$this->_CV_Skills = new CV_Skills();
 	}
-	// get all the users from the database using the database query
 	public function getCV($globalUser){
 
 		$this->_DB->doQuery("SELECT * FROM jms_cv where applicantID like '$globalUser'");

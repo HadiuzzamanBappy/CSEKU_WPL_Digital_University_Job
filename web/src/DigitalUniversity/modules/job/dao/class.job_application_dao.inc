@@ -18,7 +18,6 @@ Class JobApplicationDAO{
 		$this->_JOB_Application = new JOB_Application();
 	}
 
-	// get all the users from the database using the database query
 	public function getMyApplication($globaluser){
 
 		$ApplicationList = array();
@@ -26,6 +25,7 @@ Class JobApplicationDAO{
 		$this->_DB->doQuery("SELECT * FROM jms_applicant where applicantID like '$globaluser'");
 
 		$rows = $this->_DB->getAllRows();
+
 
 		for($i = 0; $i < sizeof($rows); $i++) {
 			$row = $rows[$i];
@@ -39,8 +39,7 @@ Class JobApplicationDAO{
 
 		    $this->_DB->doQuery("SELECT * FROM jms_job where ID like '".$row['JobID']."'");
 
-			$rows = $this->_DB->getAllRows();
-			$row = $rows[0];
+		    $row = $this->_DB->getTopRow();
 
 		    $this->_JOB_Application->setjobname( $row['Title'] );
 
@@ -49,7 +48,6 @@ Class JobApplicationDAO{
    
 		}
 
-
 		$Result = new Result();
 		$Result->setIsSuccess(1);
 		$Result->setResultObject($ApplicationList);
@@ -57,7 +55,6 @@ Class JobApplicationDAO{
 		return $Result;
 	}
 
-	// get all the users from the database using the database query
 	public function getAllApplication(){
 
 		$ApplicationList = array();
@@ -79,8 +76,7 @@ Class JobApplicationDAO{
 
 		    $this->_DB->doQuery("SELECT * FROM jms_job where ID like '".$row['JobID']."'");
 
-			$rows = $this->_DB->getAllRows();
-			$row = $rows[0];
+			$row = $this->_DB->getTopRow();
 
 		    $this->_JOB_Application->setjobname( $row['Title'] );
 

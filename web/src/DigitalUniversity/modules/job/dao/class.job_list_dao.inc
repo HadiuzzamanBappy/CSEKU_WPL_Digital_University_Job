@@ -60,7 +60,7 @@ Class JobListDAO{
 
 		return $Result;
 	}
-	//read an user object based on its id form user object along with the Positions
+	//read an job object based on its id form job object along with the Positions
 	public function readJobPositions($Job){
 
 		$this->_DB->doQuery("SELECT * FROM jms_job where ID like '".$Job->getID()."'");
@@ -92,7 +92,7 @@ Class JobListDAO{
 
 		return $Result;
 	}
-	//delete an user based on its id of the database
+	//delete an job based on its id of the database
 	public function deleteJob($Job){
 	
 		//removing previous Positions 
@@ -145,11 +145,10 @@ Class JobListDAO{
 
 	 	$Result = new Result();
 		$Result->setIsSuccess(1);
-		$Result->setResultObject("New Job Request Submitted Successfully.");
+		$Result->setResultObject("Job Updated Successfully.");
 
 		return $Result;
 	}
-	//create new job request with the job object
 	public function checkForCV($UserDetails){
 		$this->_DB->doQuery("SELECT * FROM jms_cv where applicantID like '".$UserDetails->getID()."'");
 
@@ -170,7 +169,6 @@ Class JobListDAO{
 		}
 		return $Result;
 	}
-	//create new job request with the job object
 	public function applyJob($Applicant){
 		$applicantID=$Applicant->getapplicantID();
 		$JobID=$Applicant->getJobID();
@@ -212,42 +210,42 @@ Class JobListDAO{
 		return $Result;
 	}
 
-	// get all the users from the database using the database query
-	public function getJobDetails($Job){
+	// // get all the users from the database using the database query
+	// public function getJobDetails($Job){
 
-		$id=$Job->getID();
+	// 	$id=$Job->getID();
 
-		$this->_DB->doQuery("SELECT * FROM jms_job where ID like '$id'");
+	// 	$this->_DB->doQuery("SELECT * FROM jms_job where ID like '$id'");
 
-		$rows = $this->_DB->getAllRows();
+	// 	$rows = $this->_DB->getAllRows();
 
-			$row = $rows[0];
-			$this->_Job = new Job();
+	// 		$row = $rows[0];
+	// 		$this->_Job = new Job();
 
-		    $this->_Job->setID ( $row['ID']);
-		    $this->_Job->setTitle ( $row['Title'] );   
-		    $this->_Job->setSubtitle ( $row['Subtitle'] );
-		    $this->_Job->setPublishDate ( $row['PublishDate'] );
-		    $this->_Job->setOrganization( $row['Organization'] );
-		    $this->_Job->setQualification( $row['Qualification'] );
-		    $this->_Job->setGender( $row['Gender'] );
-		    $this->_Job->setAgeLimit ( $row['AgeLimit'] );
-		    $this->_Job->setEmploymentType( $row['EmploymentType'] );
-		    $this->_Job->setNumberOfVacancy( $row['NumberOfVacancy'] );
-		    $this->_Job->setEmail( $row['Email'] );
-		    $this->_Job->setContactNumber ( $row['ContactNumber'] );
-		    $this->_Job->setSalary( $row['Salary'] );
-		    $this->_Job->setLocation( $row['Location'] );
-		    $this->_Job->setJobExperience( $row['JobExperience'] );
-		    $this->_Job->setLastDateOfApplication( $row['LastDateOfApplication'] );
+	// 	    $this->_Job->setID ( $row['ID']);
+	// 	    $this->_Job->setTitle ( $row['Title'] );   
+	// 	    $this->_Job->setSubtitle ( $row['Subtitle'] );
+	// 	    $this->_Job->setPublishDate ( $row['PublishDate'] );
+	// 	    $this->_Job->setOrganization( $row['Organization'] );
+	// 	    $this->_Job->setQualification( $row['Qualification'] );
+	// 	    $this->_Job->setGender( $row['Gender'] );
+	// 	    $this->_Job->setAgeLimit ( $row['AgeLimit'] );
+	// 	    $this->_Job->setEmploymentType( $row['EmploymentType'] );
+	// 	    $this->_Job->setNumberOfVacancy( $row['NumberOfVacancy'] );
+	// 	    $this->_Job->setEmail( $row['Email'] );
+	// 	    $this->_Job->setContactNumber ( $row['ContactNumber'] );
+	// 	    $this->_Job->setSalary( $row['Salary'] );
+	// 	    $this->_Job->setLocation( $row['Location'] );
+	// 	    $this->_Job->setJobExperience( $row['JobExperience'] );
+	// 	    $this->_Job->setLastDateOfApplication( $row['LastDateOfApplication'] );
 
 
-		$Result = new Result();
-		$Result->setIsSuccess(1);
-		$Result->setResultObject($this->_Job);
+	// 	$Result = new Result();
+	// 	$Result->setIsSuccess(1);
+	// 	$Result->setResultObject($this->_Job);
 
-		return $Result;
-	}
+	// 	return $Result;
+	// }
 }
 
 ?>

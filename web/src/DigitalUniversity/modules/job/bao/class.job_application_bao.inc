@@ -4,9 +4,6 @@ include_once UTILITY.'class.util.inc';
 include_once MODULES_JOB.'dao/class.job_application_dao.inc';
 
 
-/*
-	User Business Object 
-*/
 Class JobApplicationBAO{
 
 	private $_DB;
@@ -18,7 +15,6 @@ Class JobApplicationBAO{
 
 	}
 
-	//get all users value
 	public function getMyApplication($globaluser){
 
 		$Result = new Result();	
@@ -30,7 +26,6 @@ Class JobApplicationBAO{
 		return $Result;
 	}
 
-	//get all users value
 	public function getAllApplication(){
 
 		$Result = new Result();	
