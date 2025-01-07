@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Oct 28, 2018 at 05:16 PM
--- Server version: 5.7.21
--- PHP Version: 5.6.35
+-- Host: 127.0.0.1
+-- Generation Time: Jan 07, 2025 at 07:15 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,15 +27,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `jms_applicant`
 --
 
-DROP TABLE IF EXISTS `jms_applicant`;
-CREATE TABLE IF NOT EXISTS `jms_applicant` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jms_applicant` (
+  `ID` int(11) NOT NULL,
   `applicantID` varchar(40) NOT NULL,
   `JobID` varchar(40) NOT NULL,
   `cvID` varchar(100) NOT NULL,
-  `SubmissionDate` datetime NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+  `SubmissionDate` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `jms_applicant`
@@ -54,18 +51,16 @@ INSERT INTO `jms_applicant` (`ID`, `applicantID`, `JobID`, `cvID`, `SubmissionDa
 -- Table structure for table `jms_cv`
 --
 
-DROP TABLE IF EXISTS `jms_cv`;
-CREATE TABLE IF NOT EXISTS `jms_cv` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jms_cv` (
+  `ID` int(11) NOT NULL,
   `applicantID` varchar(40) NOT NULL,
   `Name` varchar(40) NOT NULL,
   `sector` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `phone` varchar(45) NOT NULL,
   `profile` varchar(500) NOT NULL,
-  `technical_skill` varchar(500) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `technical_skill` varchar(500) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `jms_cv`
@@ -81,15 +76,13 @@ INSERT INTO `jms_cv` (`ID`, `applicantID`, `Name`, `sector`, `email`, `phone`, `
 -- Table structure for table `jms_cv_education`
 --
 
-DROP TABLE IF EXISTS `jms_cv_education`;
-CREATE TABLE IF NOT EXISTS `jms_cv_education` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jms_cv_education` (
+  `ID` int(11) NOT NULL,
   `cvID` int(11) NOT NULL,
   `instituition` varchar(45) NOT NULL,
   `subject` varchar(45) NOT NULL,
-  `cgpa` varchar(45) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+  `cgpa` varchar(45) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `jms_cv_education`
@@ -106,16 +99,14 @@ INSERT INTO `jms_cv_education` (`ID`, `cvID`, `instituition`, `subject`, `cgpa`)
 -- Table structure for table `jms_cv_experience`
 --
 
-DROP TABLE IF EXISTS `jms_cv_experience`;
-CREATE TABLE IF NOT EXISTS `jms_cv_experience` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jms_cv_experience` (
+  `ID` int(11) NOT NULL,
   `cvID` int(11) NOT NULL,
   `jobname` varchar(45) NOT NULL,
   `jobposition` varchar(45) NOT NULL,
   `workingyear` varchar(45) NOT NULL,
-  `workdetails` varchar(500) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+  `workdetails` varchar(500) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `jms_cv_experience`
@@ -132,14 +123,12 @@ INSERT INTO `jms_cv_experience` (`ID`, `cvID`, `jobname`, `jobposition`, `workin
 -- Table structure for table `jms_cv_skills`
 --
 
-DROP TABLE IF EXISTS `jms_cv_skills`;
-CREATE TABLE IF NOT EXISTS `jms_cv_skills` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jms_cv_skills` (
+  `ID` int(11) NOT NULL,
   `cvID` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `details` varchar(500) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+  `details` varchar(500) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `jms_cv_skills`
@@ -157,9 +146,8 @@ INSERT INTO `jms_cv_skills` (`ID`, `cvID`, `name`, `details`) VALUES
 -- Table structure for table `jms_job`
 --
 
-DROP TABLE IF EXISTS `jms_job`;
-CREATE TABLE IF NOT EXISTS `jms_job` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jms_job` (
+  `ID` int(11) NOT NULL,
   `Title` varchar(100) NOT NULL,
   `Subtitle` varchar(100) NOT NULL,
   `PublishDate` date NOT NULL,
@@ -174,9 +162,8 @@ CREATE TABLE IF NOT EXISTS `jms_job` (
   `Salary` varchar(45) DEFAULT NULL,
   `Location` varchar(255) DEFAULT NULL,
   `JobExperience` varchar(45) DEFAULT NULL,
-  `LastDateOfApplication` date NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `LastDateOfApplication` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `jms_job`
@@ -192,17 +179,15 @@ INSERT INTO `jms_job` (`ID`, `Title`, `Subtitle`, `PublishDate`, `Organization`,
 -- Table structure for table `reg_course`
 --
 
-DROP TABLE IF EXISTS `reg_course`;
-CREATE TABLE IF NOT EXISTS `reg_course` (
+CREATE TABLE `reg_course` (
   `ID` varchar(40) NOT NULL,
   `CourseNo` varchar(40) NOT NULL,
   `Title` varchar(100) NOT NULL,
   `Credit` double NOT NULL,
   `CourseTypeID` varchar(40) NOT NULL,
   `DisciplineID` varchar(40) NOT NULL,
-  `IsDeleted` tinyint(1) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `IsDeleted` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reg_course`
@@ -220,11 +205,10 @@ INSERT INTO `reg_course` (`ID`, `CourseNo`, `Title`, `Credit`, `CourseTypeID`, `
 -- Table structure for table `reg_course_resource`
 --
 
-DROP TABLE IF EXISTS `reg_course_resource`;
-CREATE TABLE IF NOT EXISTS `reg_course_resource` (
+CREATE TABLE `reg_course_resource` (
   `CourseID` varchar(40) NOT NULL,
   `ResourceID` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -232,12 +216,10 @@ CREATE TABLE IF NOT EXISTS `reg_course_resource` (
 -- Table structure for table `reg_course_sessional_type`
 --
 
-DROP TABLE IF EXISTS `reg_course_sessional_type`;
-CREATE TABLE IF NOT EXISTS `reg_course_sessional_type` (
+CREATE TABLE `reg_course_sessional_type` (
   `ID` varchar(40) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reg_course_sessional_type`
@@ -257,8 +239,7 @@ INSERT INTO `reg_course_sessional_type` (`ID`, `Name`) VALUES
 -- Table structure for table `reg_course_student_registration`
 --
 
-DROP TABLE IF EXISTS `reg_course_student_registration`;
-CREATE TABLE IF NOT EXISTS `reg_course_student_registration` (
+CREATE TABLE `reg_course_student_registration` (
   `ID` varchar(40) NOT NULL,
   `Regs_TeacherID` varchar(40) DEFAULT NULL,
   `StudentID` varchar(40) NOT NULL,
@@ -267,9 +248,8 @@ CREATE TABLE IF NOT EXISTS `reg_course_student_registration` (
   `YearID` varchar(40) DEFAULT NULL,
   `TermID` varchar(40) DEFAULT NULL,
   `IsRetake` tinyint(1) DEFAULT NULL,
-  `Status` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reg_course_student_registration`
@@ -289,17 +269,15 @@ INSERT INTO `reg_course_student_registration` (`ID`, `Regs_TeacherID`, `StudentI
 -- Table structure for table `reg_course_teacher`
 --
 
-DROP TABLE IF EXISTS `reg_course_teacher`;
-CREATE TABLE IF NOT EXISTS `reg_course_teacher` (
+CREATE TABLE `reg_course_teacher` (
   `ID` varchar(40) NOT NULL,
   `CourseID` varchar(40) NOT NULL,
   `TeacherID` varchar(40) NOT NULL,
   `SessionID` varchar(40) NOT NULL,
   `YearID` varchar(40) NOT NULL,
   `TermID` varchar(40) NOT NULL,
-  `NoOfTests` int(10) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `NoOfTests` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reg_course_teacher`
@@ -315,15 +293,13 @@ INSERT INTO `reg_course_teacher` (`ID`, `CourseID`, `TeacherID`, `SessionID`, `Y
 -- Table structure for table `reg_course_teacher_registration`
 --
 
-DROP TABLE IF EXISTS `reg_course_teacher_registration`;
-CREATE TABLE IF NOT EXISTS `reg_course_teacher_registration` (
+CREATE TABLE `reg_course_teacher_registration` (
   `ID` varchar(40) NOT NULL,
   `TeacherID` varchar(40) NOT NULL,
   `SessionID` varchar(40) NOT NULL,
   `YearID` varchar(40) NOT NULL,
-  `TermID` varchar(40) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `TermID` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reg_course_teacher_registration`
@@ -338,13 +314,11 @@ INSERT INTO `reg_course_teacher_registration` (`ID`, `TeacherID`, `SessionID`, `
 -- Table structure for table `reg_course_type`
 --
 
-DROP TABLE IF EXISTS `reg_course_type`;
-CREATE TABLE IF NOT EXISTS `reg_course_type` (
+CREATE TABLE `reg_course_type` (
   `ID` varchar(40) NOT NULL,
   `Name` varchar(30) NOT NULL,
-  `SessionalTypeID` varchar(40) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `SessionalTypeID` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reg_course_type`
@@ -361,12 +335,10 @@ INSERT INTO `reg_course_type` (`ID`, `Name`, `SessionalTypeID`) VALUES
 -- Table structure for table `reg_registration_session`
 --
 
-DROP TABLE IF EXISTS `reg_registration_session`;
-CREATE TABLE IF NOT EXISTS `reg_registration_session` (
+CREATE TABLE `reg_registration_session` (
   `ID` varchar(40) NOT NULL,
-  `Name` varchar(30) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reg_registration_session`
@@ -386,12 +358,10 @@ INSERT INTO `reg_registration_session` (`ID`, `Name`) VALUES
 -- Table structure for table `reg_term`
 --
 
-DROP TABLE IF EXISTS `reg_term`;
-CREATE TABLE IF NOT EXISTS `reg_term` (
+CREATE TABLE `reg_term` (
   `ID` varchar(40) NOT NULL,
-  `Name` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reg_term`
@@ -408,12 +378,10 @@ INSERT INTO `reg_term` (`ID`, `Name`) VALUES
 -- Table structure for table `reg_year`
 --
 
-DROP TABLE IF EXISTS `reg_year`;
-CREATE TABLE IF NOT EXISTS `reg_year` (
+CREATE TABLE `reg_year` (
   `ID` varchar(40) NOT NULL,
-  `Name` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reg_year`
@@ -437,8 +405,7 @@ INSERT INTO `reg_year` (`ID`, `Name`) VALUES
 -- Table structure for table `rms_course_marks_result`
 --
 
-DROP TABLE IF EXISTS `rms_course_marks_result`;
-CREATE TABLE IF NOT EXISTS `rms_course_marks_result` (
+CREATE TABLE `rms_course_marks_result` (
   `ID` varchar(40) NOT NULL,
   `CourseNo` varchar(40) NOT NULL,
   `TeacherID` varchar(40) DEFAULT NULL,
@@ -448,9 +415,8 @@ CREATE TABLE IF NOT EXISTS `rms_course_marks_result` (
   `StudentID` varchar(40) NOT NULL,
   `MarksID` varchar(40) NOT NULL,
   `MarksValue` varchar(200) NOT NULL,
-  `Status` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Status` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `rms_course_marks_result`
@@ -465,8 +431,7 @@ INSERT INTO `rms_course_marks_result` (`ID`, `CourseNo`, `TeacherID`, `SessionID
 -- Table structure for table `rms_course_marks_result_publish`
 --
 
-DROP TABLE IF EXISTS `rms_course_marks_result_publish`;
-CREATE TABLE IF NOT EXISTS `rms_course_marks_result_publish` (
+CREATE TABLE `rms_course_marks_result_publish` (
   `ID` varchar(40) NOT NULL,
   `CourseNo` varchar(40) NOT NULL,
   `TeacherID` varchar(40) DEFAULT NULL,
@@ -481,9 +446,8 @@ CREATE TABLE IF NOT EXISTS `rms_course_marks_result_publish` (
   `MarksTotal` varchar(20) NOT NULL,
   `Grades` varchar(200) NOT NULL,
   `GradeRanges` varchar(300) NOT NULL,
-  `FinalGrade` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `FinalGrade` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -491,8 +455,7 @@ CREATE TABLE IF NOT EXISTS `rms_course_marks_result_publish` (
 -- Table structure for table `rms_course_marks_tests`
 --
 
-DROP TABLE IF EXISTS `rms_course_marks_tests`;
-CREATE TABLE IF NOT EXISTS `rms_course_marks_tests` (
+CREATE TABLE `rms_course_marks_tests` (
   `ID` varchar(40) NOT NULL,
   `CourseNo` varchar(40) NOT NULL,
   `TeacherID` varchar(40) NOT NULL,
@@ -500,9 +463,8 @@ CREATE TABLE IF NOT EXISTS `rms_course_marks_tests` (
   `YearID` varchar(40) NOT NULL,
   `TermID` varchar(40) NOT NULL,
   `StudentID` varchar(40) NOT NULL,
-  `MarksValue` varchar(200) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `MarksValue` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `rms_course_marks_tests`
@@ -521,14 +483,12 @@ INSERT INTO `rms_course_marks_tests` (`ID`, `CourseNo`, `TeacherID`, `SessionID`
 -- Table structure for table `rms_grade_setup`
 --
 
-DROP TABLE IF EXISTS `rms_grade_setup`;
-CREATE TABLE IF NOT EXISTS `rms_grade_setup` (
+CREATE TABLE `rms_grade_setup` (
   `ID` varchar(40) NOT NULL,
   `Grades` varchar(200) NOT NULL,
   `Ranges` varchar(300) NOT NULL,
-  `IsDefault` tinyint(1) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `IsDefault` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `rms_grade_setup`
@@ -543,16 +503,14 @@ INSERT INTO `rms_grade_setup` (`ID`, `Grades`, `Ranges`, `IsDefault`) VALUES
 -- Table structure for table `rms_marks_setup`
 --
 
-DROP TABLE IF EXISTS `rms_marks_setup`;
-CREATE TABLE IF NOT EXISTS `rms_marks_setup` (
+CREATE TABLE `rms_marks_setup` (
   `ID` varchar(40) NOT NULL,
   `CourseTypeID` varchar(40) NOT NULL,
   `HeaderID` varchar(200) NOT NULL,
   `HeaderName` varchar(200) NOT NULL,
   `HeaderMax` varchar(200) NOT NULL,
-  `IsDefault` tinyint(1) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `IsDefault` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `rms_marks_setup`
@@ -568,14 +526,12 @@ INSERT INTO `rms_marks_setup` (`ID`, `CourseTypeID`, `HeaderID`, `HeaderName`, `
 -- Table structure for table `ums_discipline`
 --
 
-DROP TABLE IF EXISTS `ums_discipline`;
-CREATE TABLE IF NOT EXISTS `ums_discipline` (
+CREATE TABLE `ums_discipline` (
   `ID` varchar(40) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `ShortCode` varchar(20) DEFAULT NULL,
-  `SchoolID` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `SchoolID` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_discipline`
@@ -596,144 +552,142 @@ INSERT INTO `ums_discipline` (`ID`, `Name`, `ShortCode`, `SchoolID`) VALUES
 -- Table structure for table `ums_permission`
 --
 
-DROP TABLE IF EXISTS `ums_permission`;
-CREATE TABLE IF NOT EXISTS `ums_permission` (
-  `TableID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ums_permission` (
+  `TableID` int(11) NOT NULL,
   `ID` varchar(100) NOT NULL,
   `Name` varchar(100) NOT NULL,
-  `Category` varchar(100) NOT NULL,
-  PRIMARY KEY (`TableID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1693 DEFAULT CHARSET=latin1;
+  `Category` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_permission`
 --
 
 INSERT INTO `ums_permission` (`TableID`, `ID`, `Name`, `Category`) VALUES
-(1569, 'COURSE_C', 'COURSE_C', 'COURSE'),
-(1570, 'COURSE_R', 'COURSE_R', 'COURSE'),
-(1571, 'COURSE_U', 'COURSE_U', 'COURSE'),
-(1572, 'COURSE_D', 'COURSE_D', 'COURSE'),
-(1573, 'COURSE_TYPE_C', 'COURSE_TYPE_C', 'COURSE TYPE'),
-(1574, 'COURSE_TYPE_R', 'COURSE_TYPE_R', 'COURSE TYPE'),
-(1575, 'COURSE_TYPE_U', 'COURSE_TYPE_U', 'COURSE TYPE'),
-(1576, 'COURSE_TYPE_D', 'COURSE_TYPE_D', 'COURSE TYPE'),
-(1577, 'COURSE_SESSIONAL_TYPE_C', 'COURSE_SESSIONAL_TYPE_C', 'COURSE SESSIONAL TYPE'),
-(1578, 'COURSE_SESSIONAL_TYPE_R', 'COURSE_SESSIONAL_TYPE_R', 'COURSE SESSIONAL TYPE'),
-(1579, 'COURSE_SESSIONAL_TYPE_U', 'COURSE_SESSIONAL_TYPE_U', 'COURSE SESSIONAL TYPE'),
-(1580, 'COURSE_SESSIONAL_TYPE_D', 'COURSE_SESSIONAL_TYPE_D', 'COURSE SESSIONAL TYPE'),
-(1581, 'CLUB_C', 'CLUB_C', 'CLUB'),
-(1582, 'CLUB_R', 'CLUB_R', 'CLUB'),
-(1583, 'CLUB_U', 'CLUB_U', 'CLUB'),
-(1584, 'CLUB_D', 'CLUB_D', 'CLUB'),
-(1585, 'DISCUSSION_C', 'DISCUSSION_C', 'DISCUSSION'),
-(1586, 'DISCUSSION_R', 'DISCUSSION_R', 'DISCUSSION'),
-(1587, 'DISCUSSION_U', 'DISCUSSION_U', 'DISCUSSION'),
-(1588, 'DISCUSSION_D', 'DISCUSSION_D', 'DISCUSSION'),
-(1589, 'DISCUSSION_CAT_C', 'DISCUSSION_CAT_C', 'DISCUSSION CATEGORY'),
-(1590, 'DISCUSSION_CAT_R', 'DISCUSSION_CAT_R', 'DISCUSSION CATEGORY'),
-(1591, 'DISCUSSION_CAT_U', 'DISCUSSION_CAT_U', 'DISCUSSION CATEGORY'),
-(1592, 'DISCUSSION_CAT_D', 'DISCUSSION_CAT_D', 'DISCUSSION CATEGORY'),
-(1593, 'DISCUSSION_COMMENT_C', 'DISCUSSION_COMMENT_C', 'DISCUSSION COMMENT'),
-(1594, 'DISCUSSION_COMMENT_R', 'DISCUSSION_COMMENT_R', 'DISCUSSION COMMENT'),
-(1595, 'DISCUSSION_COMMENT_U', 'DISCUSSION_COMMENT_U', 'DISCUSSION COMMENT'),
-(1596, 'DISCUSSION_COMMENT_D', 'DISCUSSION_COMMENT_D', 'DISCUSSION COMMENT'),
-(1597, 'DISCIPLINE_C', 'DISCIPLINE_C', 'DISCIPLINE'),
-(1598, 'DISCIPLINE_R', 'DISCIPLINE_R', 'DISCIPLINE'),
-(1599, 'DISCIPLINE_U', 'DISCIPLINE_U', 'DISCIPLINE'),
-(1600, 'DISCIPLINE_D', 'DISCIPLINE_D', 'DISCIPLINE'),
-(1601, 'FILE_C', 'FILE_C', 'FILE'),
-(1602, 'FILE_R', 'FILE_R', 'FILE'),
-(1603, 'FILE_U', 'FILE_U', 'FILE'),
-(1604, 'FILE_D', 'FILE_D', 'FILE'),
-(1605, 'PERMISSION_C', 'PERMISSION_C', 'PERMISSION'),
-(1606, 'PERMISSION_R', 'PERMISSION_R', 'PERMISSION'),
-(1607, 'PERMISSION_U', 'PERMISSION_U', 'PERMISSION'),
-(1608, 'PERMISSION_D', 'PERMISSION_D', 'PERMISSION'),
-(1609, 'POSITION_C', 'POSITION_C', 'POSITION'),
-(1610, 'POSITION_R', 'POSITION_R', 'POSITION'),
-(1611, 'POSITION_U', 'POSITION_U', 'POSITION'),
-(1612, 'POSITION_D', 'POSITION_D', 'POSITION'),
-(1613, 'PROJECT_C', 'PROJECT_C', 'PROJECT'),
-(1614, 'PROJECT_R', 'PROJECT_R', 'PROJECT'),
-(1615, 'PROJECT_U', 'PROJECT_U', 'PROJECT'),
-(1616, 'PROJECT_D', 'PROJECT_D', 'PROJECT'),
-(1617, 'QUESTION_C', 'QUESTION_C', 'QUESTION'),
-(1618, 'QUESTION_R', 'QUESTION_R', 'QUESTION'),
-(1619, 'QUESTION_U', 'QUESTION_U', 'QUESTION'),
-(1620, 'QUESTION_D', 'QUESTION_D', 'QUESTION'),
-(1621, 'REGISTRATION_C', 'REGISTRATION_C', 'REGISTRATION'),
-(1622, 'REGISTRATION_R', 'REGISTRATION_R', 'REGISTRATION'),
-(1623, 'REGISTRATION_U', 'REGISTRATION_U', 'REGISTRATION'),
-(1624, 'REGISTRATION_D', 'REGISTRATION_D', 'REGISTRATION'),
-(1625, 'RESULT_C', 'RESULT_C', 'RESULT'),
-(1626, 'RESULT_R', 'RESULT_R', 'RESULT'),
-(1627, 'RESULT_U', 'RESULT_U', 'RESULT'),
-(1628, 'RESULT_D', 'RESULT_D', 'RESULT'),
-(1629, 'ATTENDANCE_C', 'ATTENDANCE_C', 'ATTENDANCE'),
-(1630, 'ATTENDANCE_R', 'ATTENDANCE_R', 'ATTENDANCE'),
-(1631, 'ATTENDANCE_U', 'ATTENDANCE_U', 'ATTENDANCE'),
-(1632, 'ATTENDANCE_D', 'ATTENDANCE_D', 'ATTENDANCE'),
-(1633, 'MARKS_SETUP_C', 'MARKS_SETUP_C', 'MARKS_SETUP'),
-(1634, 'MARKS_SETUP_R', 'MARKS_SETUP_R', 'MARKS_SETUP'),
-(1635, 'MARKS_SETUP_U', 'MARKS_SETUP_U', 'MARKS_SETUP'),
-(1636, 'MARKS_SETUP_D', 'MARKS_SETUP_D', 'MARKS_SETUP'),
-(1637, 'GRADE_SETUP_C', 'GRADE_SETUP_C', 'GRADE_SETUP'),
-(1638, 'GRADE_SETUP_R', 'GRADE_SETUP_R', 'GRADE_SETUP'),
-(1639, 'GRADE_SETUP_U', 'GRADE_SETUP_U', 'GRADE_SETUP'),
-(1640, 'GRADE_SETUP_D', 'GRADE_SETUP_D', 'GRADE_SETUP'),
-(1641, 'ROLE_C', 'ROLE_C', 'ROLE'),
-(1642, 'ROLE_R', 'ROLE_R', 'ROLE'),
-(1643, 'ROLE_U', 'ROLE_U', 'ROLE'),
-(1644, 'ROLE_D', 'ROLE_D', 'ROLE'),
-(1645, 'SCHOOL_C', 'SCHOOL_C', 'SCHOOL'),
-(1646, 'SCHOOL_R', 'SCHOOL_R', 'SCHOOL'),
-(1647, 'SCHOOL_U', 'SCHOOL_U', 'SCHOOL'),
-(1648, 'SCHOOL_D', 'SCHOOL_D', 'SCHOOL'),
-(1649, 'SESSION_C', 'SESSION_C', 'SESSION'),
-(1650, 'SESSION_R', 'SESSION_R', 'SESSION'),
-(1651, 'SESSION_U', 'SESSION_U', 'SESSION'),
-(1652, 'SESSION_D', 'SESSION_D', 'SESSION'),
-(1653, 'SURVEY_C', 'SURVEY_C', 'SURVEY'),
-(1654, 'SURVEY_R', 'SURVEY_R', 'SURVEY'),
-(1655, 'SURVEY_U', 'SURVEY_U', 'SURVEY'),
-(1656, 'SURVEY_D', 'SURVEY_D', 'SURVEY'),
-(1657, 'SURVEY_QUESTION_C', 'SURVEY_QUESTION_C', 'SURVEY QUESTION'),
-(1658, 'SURVEY_QUESTION_R', 'SURVEY_QUESTION_R', 'SURVEY QUESTION'),
-(1659, 'SURVEY_QUESTION_U', 'SURVEY_QUESTION_U', 'SURVEY QUESTION'),
-(1660, 'SURVEY_QUESTION_D', 'SURVEY_QUESTION_D', 'SURVEY QUESTION'),
-(1661, 'SURVEY_QUESTION_TYPE_C', 'SURVEY_QUESTION_TYPE_C', 'SURVEY QUESTION TYPE'),
-(1662, 'SURVEY_QUESTION_TYPE_R', 'SURVEY_QUESTION_TYPE_R', 'SURVEY QUESTION TYPE'),
-(1663, 'SURVEY_QUESTION_TYPE_U', 'SURVEY_QUESTION_TYPE_U', 'SURVEY QUESTION TYPE'),
-(1664, 'SURVEY_QUESTION_TYPE_D', 'SURVEY_QUESTION_TYPE_D', 'SURVEY QUESTION TYPE'),
-(1665, 'SURVEY_QUESTION_FILLUP_C', 'SURVEY_QUESTION_FILLUP_C', 'SURVEY QUESTION FILLUP'),
-(1666, 'SURVEY_QUESTION_FILLUP_R', 'SURVEY_QUESTION_FILLUP_R', 'SURVEY QUESTION FILLUP'),
-(1667, 'SURVEY_QUESTION_FILLUP_U', 'SURVEY_QUESTION_FILLUP_U', 'SURVEY QUESTION FILLUP'),
-(1668, 'SURVEY_QUESTION_FILLUP_D', 'SURVEY_QUESTION_FILLUP_D', 'SURVEY QUESTION FILLUP'),
-(1669, 'TERM_C', 'TERM_C', 'TERM'),
-(1670, 'TERM_R', 'TERM_R', 'TERM'),
-(1671, 'TERM_U', 'TERM_U', 'TERM'),
-(1672, 'TERM_D', 'TERM_D', 'TERM'),
-(1673, 'USER_C', 'USER_C', 'USER'),
-(1674, 'USER_R', 'USER_R', 'USER'),
-(1675, 'USER_U', 'USER_U', 'USER'),
-(1676, 'USER_D', 'USER_D', 'USER'),
-(1677, 'YEAR_C', 'YEAR_C', 'YEAR'),
-(1678, 'YEAR_R', 'YEAR_R', 'YEAR'),
-(1679, 'YEAR_U', 'YEAR_U', 'YEAR'),
-(1680, 'YEAR_D', 'YEAR_D', 'YEAR'),
-(1681, 'VIDEO_C', 'VIDEO_C', 'VIDEO'),
-(1682, 'VIDEO_R', 'VIDEO_R', 'VIDEO'),
-(1683, 'VIDEO_U', 'VIDEO_U', 'VIDEO'),
-(1684, 'VIDEO_D', 'VIDEO_D', 'VIDEO'),
-(1685, 'VIDEO_COMMENT_C', 'VIDEO_COMMENT_C', 'VIDEO COMMENT'),
-(1686, 'VIDEO_COMMENT_R', 'VIDEO_COMMENT_R', 'VIDEO COMMENT'),
-(1687, 'VIDEO_COMMENT_U', 'VIDEO_COMMENT_U', 'VIDEO COMMENT'),
-(1688, 'VIDEO_COMMENT_D', 'VIDEO_COMMENT_D', 'VIDEO COMMENT'),
-(1689, 'JOB_C', 'JOB_C', 'JOB'),
-(1690, 'JOB_R', 'JOB_R', 'JOB'),
-(1691, 'JOB_U', 'JOB_U', 'JOB'),
-(1692, 'JOB_D', 'JOB_D', 'JOB');
+(1693, 'COURSE_C', 'COURSE_C', 'COURSE'),
+(1694, 'COURSE_R', 'COURSE_R', 'COURSE'),
+(1695, 'COURSE_U', 'COURSE_U', 'COURSE'),
+(1696, 'COURSE_D', 'COURSE_D', 'COURSE'),
+(1697, 'COURSE_TYPE_C', 'COURSE_TYPE_C', 'COURSE TYPE'),
+(1698, 'COURSE_TYPE_R', 'COURSE_TYPE_R', 'COURSE TYPE'),
+(1699, 'COURSE_TYPE_U', 'COURSE_TYPE_U', 'COURSE TYPE'),
+(1700, 'COURSE_TYPE_D', 'COURSE_TYPE_D', 'COURSE TYPE'),
+(1701, 'COURSE_SESSIONAL_TYPE_C', 'COURSE_SESSIONAL_TYPE_C', 'COURSE SESSIONAL TYPE'),
+(1702, 'COURSE_SESSIONAL_TYPE_R', 'COURSE_SESSIONAL_TYPE_R', 'COURSE SESSIONAL TYPE'),
+(1703, 'COURSE_SESSIONAL_TYPE_U', 'COURSE_SESSIONAL_TYPE_U', 'COURSE SESSIONAL TYPE'),
+(1704, 'COURSE_SESSIONAL_TYPE_D', 'COURSE_SESSIONAL_TYPE_D', 'COURSE SESSIONAL TYPE'),
+(1705, 'CLUB_C', 'CLUB_C', 'CLUB'),
+(1706, 'CLUB_R', 'CLUB_R', 'CLUB'),
+(1707, 'CLUB_U', 'CLUB_U', 'CLUB'),
+(1708, 'CLUB_D', 'CLUB_D', 'CLUB'),
+(1709, 'DISCUSSION_C', 'DISCUSSION_C', 'DISCUSSION'),
+(1710, 'DISCUSSION_R', 'DISCUSSION_R', 'DISCUSSION'),
+(1711, 'DISCUSSION_U', 'DISCUSSION_U', 'DISCUSSION'),
+(1712, 'DISCUSSION_D', 'DISCUSSION_D', 'DISCUSSION'),
+(1713, 'DISCUSSION_CAT_C', 'DISCUSSION_CAT_C', 'DISCUSSION CATEGORY'),
+(1714, 'DISCUSSION_CAT_R', 'DISCUSSION_CAT_R', 'DISCUSSION CATEGORY'),
+(1715, 'DISCUSSION_CAT_U', 'DISCUSSION_CAT_U', 'DISCUSSION CATEGORY'),
+(1716, 'DISCUSSION_CAT_D', 'DISCUSSION_CAT_D', 'DISCUSSION CATEGORY'),
+(1717, 'DISCUSSION_COMMENT_C', 'DISCUSSION_COMMENT_C', 'DISCUSSION COMMENT'),
+(1718, 'DISCUSSION_COMMENT_R', 'DISCUSSION_COMMENT_R', 'DISCUSSION COMMENT'),
+(1719, 'DISCUSSION_COMMENT_U', 'DISCUSSION_COMMENT_U', 'DISCUSSION COMMENT'),
+(1720, 'DISCUSSION_COMMENT_D', 'DISCUSSION_COMMENT_D', 'DISCUSSION COMMENT'),
+(1721, 'DISCIPLINE_C', 'DISCIPLINE_C', 'DISCIPLINE'),
+(1722, 'DISCIPLINE_R', 'DISCIPLINE_R', 'DISCIPLINE'),
+(1723, 'DISCIPLINE_U', 'DISCIPLINE_U', 'DISCIPLINE'),
+(1724, 'DISCIPLINE_D', 'DISCIPLINE_D', 'DISCIPLINE'),
+(1725, 'FILE_C', 'FILE_C', 'FILE'),
+(1726, 'FILE_R', 'FILE_R', 'FILE'),
+(1727, 'FILE_U', 'FILE_U', 'FILE'),
+(1728, 'FILE_D', 'FILE_D', 'FILE'),
+(1729, 'PERMISSION_C', 'PERMISSION_C', 'PERMISSION'),
+(1730, 'PERMISSION_R', 'PERMISSION_R', 'PERMISSION'),
+(1731, 'PERMISSION_U', 'PERMISSION_U', 'PERMISSION'),
+(1732, 'PERMISSION_D', 'PERMISSION_D', 'PERMISSION'),
+(1733, 'POSITION_C', 'POSITION_C', 'POSITION'),
+(1734, 'POSITION_R', 'POSITION_R', 'POSITION'),
+(1735, 'POSITION_U', 'POSITION_U', 'POSITION'),
+(1736, 'POSITION_D', 'POSITION_D', 'POSITION'),
+(1737, 'PROJECT_C', 'PROJECT_C', 'PROJECT'),
+(1738, 'PROJECT_R', 'PROJECT_R', 'PROJECT'),
+(1739, 'PROJECT_U', 'PROJECT_U', 'PROJECT'),
+(1740, 'PROJECT_D', 'PROJECT_D', 'PROJECT'),
+(1741, 'QUESTION_C', 'QUESTION_C', 'QUESTION'),
+(1742, 'QUESTION_R', 'QUESTION_R', 'QUESTION'),
+(1743, 'QUESTION_U', 'QUESTION_U', 'QUESTION'),
+(1744, 'QUESTION_D', 'QUESTION_D', 'QUESTION'),
+(1745, 'REGISTRATION_C', 'REGISTRATION_C', 'REGISTRATION'),
+(1746, 'REGISTRATION_R', 'REGISTRATION_R', 'REGISTRATION'),
+(1747, 'REGISTRATION_U', 'REGISTRATION_U', 'REGISTRATION'),
+(1748, 'REGISTRATION_D', 'REGISTRATION_D', 'REGISTRATION'),
+(1749, 'RESULT_C', 'RESULT_C', 'RESULT'),
+(1750, 'RESULT_R', 'RESULT_R', 'RESULT'),
+(1751, 'RESULT_U', 'RESULT_U', 'RESULT'),
+(1752, 'RESULT_D', 'RESULT_D', 'RESULT'),
+(1753, 'ATTENDANCE_C', 'ATTENDANCE_C', 'ATTENDANCE'),
+(1754, 'ATTENDANCE_R', 'ATTENDANCE_R', 'ATTENDANCE'),
+(1755, 'ATTENDANCE_U', 'ATTENDANCE_U', 'ATTENDANCE'),
+(1756, 'ATTENDANCE_D', 'ATTENDANCE_D', 'ATTENDANCE'),
+(1757, 'MARKS_SETUP_C', 'MARKS_SETUP_C', 'MARKS_SETUP'),
+(1758, 'MARKS_SETUP_R', 'MARKS_SETUP_R', 'MARKS_SETUP'),
+(1759, 'MARKS_SETUP_U', 'MARKS_SETUP_U', 'MARKS_SETUP'),
+(1760, 'MARKS_SETUP_D', 'MARKS_SETUP_D', 'MARKS_SETUP'),
+(1761, 'GRADE_SETUP_C', 'GRADE_SETUP_C', 'GRADE_SETUP'),
+(1762, 'GRADE_SETUP_R', 'GRADE_SETUP_R', 'GRADE_SETUP'),
+(1763, 'GRADE_SETUP_U', 'GRADE_SETUP_U', 'GRADE_SETUP'),
+(1764, 'GRADE_SETUP_D', 'GRADE_SETUP_D', 'GRADE_SETUP'),
+(1765, 'ROLE_C', 'ROLE_C', 'ROLE'),
+(1766, 'ROLE_R', 'ROLE_R', 'ROLE'),
+(1767, 'ROLE_U', 'ROLE_U', 'ROLE'),
+(1768, 'ROLE_D', 'ROLE_D', 'ROLE'),
+(1769, 'SCHOOL_C', 'SCHOOL_C', 'SCHOOL'),
+(1770, 'SCHOOL_R', 'SCHOOL_R', 'SCHOOL'),
+(1771, 'SCHOOL_U', 'SCHOOL_U', 'SCHOOL'),
+(1772, 'SCHOOL_D', 'SCHOOL_D', 'SCHOOL'),
+(1773, 'SESSION_C', 'SESSION_C', 'SESSION'),
+(1774, 'SESSION_R', 'SESSION_R', 'SESSION'),
+(1775, 'SESSION_U', 'SESSION_U', 'SESSION'),
+(1776, 'SESSION_D', 'SESSION_D', 'SESSION'),
+(1777, 'SURVEY_C', 'SURVEY_C', 'SURVEY'),
+(1778, 'SURVEY_R', 'SURVEY_R', 'SURVEY'),
+(1779, 'SURVEY_U', 'SURVEY_U', 'SURVEY'),
+(1780, 'SURVEY_D', 'SURVEY_D', 'SURVEY'),
+(1781, 'SURVEY_QUESTION_C', 'SURVEY_QUESTION_C', 'SURVEY QUESTION'),
+(1782, 'SURVEY_QUESTION_R', 'SURVEY_QUESTION_R', 'SURVEY QUESTION'),
+(1783, 'SURVEY_QUESTION_U', 'SURVEY_QUESTION_U', 'SURVEY QUESTION'),
+(1784, 'SURVEY_QUESTION_D', 'SURVEY_QUESTION_D', 'SURVEY QUESTION'),
+(1785, 'SURVEY_QUESTION_TYPE_C', 'SURVEY_QUESTION_TYPE_C', 'SURVEY QUESTION TYPE'),
+(1786, 'SURVEY_QUESTION_TYPE_R', 'SURVEY_QUESTION_TYPE_R', 'SURVEY QUESTION TYPE'),
+(1787, 'SURVEY_QUESTION_TYPE_U', 'SURVEY_QUESTION_TYPE_U', 'SURVEY QUESTION TYPE'),
+(1788, 'SURVEY_QUESTION_TYPE_D', 'SURVEY_QUESTION_TYPE_D', 'SURVEY QUESTION TYPE'),
+(1789, 'SURVEY_QUESTION_FILLUP_C', 'SURVEY_QUESTION_FILLUP_C', 'SURVEY QUESTION FILLUP'),
+(1790, 'SURVEY_QUESTION_FILLUP_R', 'SURVEY_QUESTION_FILLUP_R', 'SURVEY QUESTION FILLUP'),
+(1791, 'SURVEY_QUESTION_FILLUP_U', 'SURVEY_QUESTION_FILLUP_U', 'SURVEY QUESTION FILLUP'),
+(1792, 'SURVEY_QUESTION_FILLUP_D', 'SURVEY_QUESTION_FILLUP_D', 'SURVEY QUESTION FILLUP'),
+(1793, 'TERM_C', 'TERM_C', 'TERM'),
+(1794, 'TERM_R', 'TERM_R', 'TERM'),
+(1795, 'TERM_U', 'TERM_U', 'TERM'),
+(1796, 'TERM_D', 'TERM_D', 'TERM'),
+(1797, 'USER_C', 'USER_C', 'USER'),
+(1798, 'USER_R', 'USER_R', 'USER'),
+(1799, 'USER_U', 'USER_U', 'USER'),
+(1800, 'USER_D', 'USER_D', 'USER'),
+(1801, 'YEAR_C', 'YEAR_C', 'YEAR'),
+(1802, 'YEAR_R', 'YEAR_R', 'YEAR'),
+(1803, 'YEAR_U', 'YEAR_U', 'YEAR'),
+(1804, 'YEAR_D', 'YEAR_D', 'YEAR'),
+(1805, 'VIDEO_C', 'VIDEO_C', 'VIDEO'),
+(1806, 'VIDEO_R', 'VIDEO_R', 'VIDEO'),
+(1807, 'VIDEO_U', 'VIDEO_U', 'VIDEO'),
+(1808, 'VIDEO_D', 'VIDEO_D', 'VIDEO'),
+(1809, 'VIDEO_COMMENT_C', 'VIDEO_COMMENT_C', 'VIDEO COMMENT'),
+(1810, 'VIDEO_COMMENT_R', 'VIDEO_COMMENT_R', 'VIDEO COMMENT'),
+(1811, 'VIDEO_COMMENT_U', 'VIDEO_COMMENT_U', 'VIDEO COMMENT'),
+(1812, 'VIDEO_COMMENT_D', 'VIDEO_COMMENT_D', 'VIDEO COMMENT'),
+(1813, 'JOB_C', 'JOB_C', 'JOB'),
+(1814, 'JOB_R', 'JOB_R', 'JOB'),
+(1815, 'JOB_U', 'JOB_U', 'JOB'),
+(1816, 'JOB_D', 'JOB_D', 'JOB');
 
 -- --------------------------------------------------------
 
@@ -741,12 +695,10 @@ INSERT INTO `ums_permission` (`TableID`, `ID`, `Name`, `Category`) VALUES
 -- Table structure for table `ums_position`
 --
 
-DROP TABLE IF EXISTS `ums_position`;
-CREATE TABLE IF NOT EXISTS `ums_position` (
+CREATE TABLE `ums_position` (
   `ID` varchar(40) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_position`
@@ -773,12 +725,10 @@ INSERT INTO `ums_position` (`ID`, `Name`) VALUES
 -- Table structure for table `ums_role`
 --
 
-DROP TABLE IF EXISTS `ums_role`;
-CREATE TABLE IF NOT EXISTS `ums_role` (
+CREATE TABLE `ums_role` (
   `ID` varchar(40) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_role`
@@ -798,13 +748,11 @@ INSERT INTO `ums_role` (`ID`, `Name`) VALUES
 -- Table structure for table `ums_role_permission`
 --
 
-DROP TABLE IF EXISTS `ums_role_permission`;
-CREATE TABLE IF NOT EXISTS `ums_role_permission` (
-  `Row` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ums_role_permission` (
+  `Row` int(11) NOT NULL,
   `RoleID` varchar(40) NOT NULL,
-  `PermissionID` varchar(100) NOT NULL,
-  PRIMARY KEY (`Row`)
-) ENGINE=InnoDB AUTO_INCREMENT=2205 DEFAULT CHARSET=latin1;
+  `PermissionID` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_role_permission`
@@ -1011,12 +959,11 @@ INSERT INTO `ums_role_permission` (`Row`, `RoleID`, `PermissionID`) VALUES
 -- Table structure for table `ums_school`
 --
 
-DROP TABLE IF EXISTS `ums_school`;
-CREATE TABLE IF NOT EXISTS `ums_school` (
+CREATE TABLE `ums_school` (
   `ID` varchar(40) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `DeanID` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_school`
@@ -1035,8 +982,7 @@ INSERT INTO `ums_school` (`ID`, `Name`, `DeanID`) VALUES
 -- Table structure for table `ums_user`
 --
 
-DROP TABLE IF EXISTS `ums_user`;
-CREATE TABLE IF NOT EXISTS `ums_user` (
+CREATE TABLE `ums_user` (
   `ID` varchar(40) NOT NULL,
   `UniversityID` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
@@ -1048,11 +994,8 @@ CREATE TABLE IF NOT EXISTS `ums_user` (
   `Status` varchar(20) DEFAULT NULL,
   `IsLogged` varchar(10) DEFAULT NULL,
   `IsArchived` varchar(10) DEFAULT NULL,
-  `IsDeleted` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `Email` (`Email`),
-  UNIQUE KEY `UniversityID` (`UniversityID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `IsDeleted` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_user`
@@ -1060,8 +1003,9 @@ CREATE TABLE IF NOT EXISTS `ums_user` (
 
 INSERT INTO `ums_user` (`ID`, `UniversityID`, `Email`, `Password`, `FirstName`, `MiddleName`, `LastName`, `DisciplineID`, `Status`, `IsLogged`, `IsArchived`, `IsDeleted`) VALUES
 ('aysha@gmail.com', '020208', 'aysha@gmail.com', '$2y$10$pJX46d.T.jkANrRShAm0qOMYkYJ/YbNfu09BFmcmMiYGKfuuEcWgO', 'Aysha', 'mrs', 'Akther', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL),
-('hbappy79@gmail.com', '160219', 'hbappy79@gmail.com', '$2y$10$7XQkM5p0LhPtpJVLoyvuwuYOKz1IWiMwHsW.wO7DfwOcfkZ1Jt9QO', 'Md.', 'Hadiuzzaman', 'Bappy', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL),
+('hbappy79@gmail.com', '160219', 'hbappy79@gmail.com', '$2y$10$1E1IrWkBkGMrHuFTlaInjeIhjpSx9WXN4rjOQL1x27npfC.3j6Bde', 'Md.', 'Hadiuzzaman', 'Bappy', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL),
 ('kashif@gmail.com', '020202', 'kashif@gmail.com', '$2y$10$pM7S85LE300vkDhYnFIz0.WKfpSPJLMNzTS4y1wLCH0TeR0qno27q', 'Kashif', 'Nizam', 'Khan', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL),
+('meshbah@gmail.com', '160218', 'meshbah@gmail.com', '$2y$10$1E1IrWkBkGMrHuFTlaInjeIhjpSx9WXN4rjOQL1x27npfC.3j6Bde', 'Mesbah', 'Ur', 'Rahman', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'pending', NULL, NULL, NULL),
 ('mkazi078@uottawa.ca', '020229', 'mkazi078@uottawa.ca', '$2y$10$dtsgRMEMbm6XNRtEkSpfnOZCvuCx3kt4Feait6sk7K7wAo7Og5p4m', 'Kazi', 'Masudul', 'Alam', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL),
 ('zahid@gmail.com', '020203', 'zahid@gmail.com', '$2y$10$nLZhZRneURR.v2AFqWw9KOe6/J60pCV/ioBnJnruw5H/Xf3x0lFy6', 'Zahidul', '', 'Islam', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL);
 
@@ -1071,17 +1015,15 @@ INSERT INTO `ums_user` (`ID`, `UniversityID`, `Email`, `Password`, `FirstName`, 
 -- Table structure for table `ums_user_details`
 --
 
-DROP TABLE IF EXISTS `ums_user_details`;
-CREATE TABLE IF NOT EXISTS `ums_user_details` (
+CREATE TABLE `ums_user_details` (
   `ID` varchar(40) NOT NULL,
   `FatherName` varchar(100) DEFAULT NULL,
   `MotherName` varchar(100) DEFAULT NULL,
   `PermanentAddress` varchar(200) DEFAULT NULL,
   `HomePhone` varchar(20) DEFAULT NULL,
   `CurrentAddress` varchar(200) DEFAULT NULL,
-  `MobilePhone` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `MobilePhone` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_user_details`
@@ -1091,6 +1033,7 @@ INSERT INTO `ums_user_details` (`ID`, `FatherName`, `MotherName`, `PermanentAddr
 ('aysha@gmail.com', 'f', 'm', 'Dr. Kazi Masudul Alam', '12313123123', 'Computer Science and Engineering Discipline, Khulna University', '45 '),
 ('hbappy79@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
 ('kashif@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+('meshbah@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
 ('mkazi078@uottawa.ca', 'Kazi Shahidul Alam', 'Hosneara Jahan', '49/2, Rokon Uddin Sarak, East Baniakhamar, Khulna', '0417223344', 'Same', '01711149360 '),
 ('zahid@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL);
 
@@ -1100,11 +1043,10 @@ INSERT INTO `ums_user_details` (`ID`, `FatherName`, `MotherName`, `PermanentAddr
 -- Table structure for table `ums_user_discipline`
 --
 
-DROP TABLE IF EXISTS `ums_user_discipline`;
-CREATE TABLE IF NOT EXISTS `ums_user_discipline` (
+CREATE TABLE `ums_user_discipline` (
   `UserID` varchar(40) NOT NULL,
   `DisciplineID` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -1112,13 +1054,11 @@ CREATE TABLE IF NOT EXISTS `ums_user_discipline` (
 -- Table structure for table `ums_user_position`
 --
 
-DROP TABLE IF EXISTS `ums_user_position`;
-CREATE TABLE IF NOT EXISTS `ums_user_position` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ums_user_position` (
+  `ID` int(11) NOT NULL,
   `UserID` varchar(40) NOT NULL,
-  `PositionID` varchar(40) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
+  `PositionID` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_user_position`
@@ -1134,13 +1074,11 @@ INSERT INTO `ums_user_position` (`ID`, `UserID`, `PositionID`) VALUES
 -- Table structure for table `ums_user_role`
 --
 
-DROP TABLE IF EXISTS `ums_user_role`;
-CREATE TABLE IF NOT EXISTS `ums_user_role` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ums_user_role` (
+  `ID` int(11) NOT NULL,
   `UserID` varchar(40) NOT NULL,
-  `RoleID` varchar(40) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=latin1;
+  `RoleID` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ums_user_role`
@@ -1169,7 +1107,252 @@ INSERT INTO `ums_user_role` (`ID`, `UserID`, `RoleID`) VALUES
 (145, 'kashif@gmail.com', 'student'),
 (164, 'aysha@gmail.com', 'administrator'),
 (165, 'mkazi078@uottawa.ca', 'administrator'),
-(166, 'hbappy79@gmail.com', 'student');
+(166, 'hbappy79@gmail.com', 'student'),
+(167, 'meshbah@gmail.com', 'student');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `jms_applicant`
+--
+ALTER TABLE `jms_applicant`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `jms_cv`
+--
+ALTER TABLE `jms_cv`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `jms_cv_education`
+--
+ALTER TABLE `jms_cv_education`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `jms_cv_experience`
+--
+ALTER TABLE `jms_cv_experience`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `jms_cv_skills`
+--
+ALTER TABLE `jms_cv_skills`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `jms_job`
+--
+ALTER TABLE `jms_job`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reg_course`
+--
+ALTER TABLE `reg_course`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reg_course_sessional_type`
+--
+ALTER TABLE `reg_course_sessional_type`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reg_course_student_registration`
+--
+ALTER TABLE `reg_course_student_registration`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reg_course_teacher`
+--
+ALTER TABLE `reg_course_teacher`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reg_course_teacher_registration`
+--
+ALTER TABLE `reg_course_teacher_registration`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reg_course_type`
+--
+ALTER TABLE `reg_course_type`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reg_registration_session`
+--
+ALTER TABLE `reg_registration_session`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reg_term`
+--
+ALTER TABLE `reg_term`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reg_year`
+--
+ALTER TABLE `reg_year`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `rms_course_marks_result`
+--
+ALTER TABLE `rms_course_marks_result`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `rms_course_marks_result_publish`
+--
+ALTER TABLE `rms_course_marks_result_publish`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `rms_course_marks_tests`
+--
+ALTER TABLE `rms_course_marks_tests`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `rms_grade_setup`
+--
+ALTER TABLE `rms_grade_setup`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `rms_marks_setup`
+--
+ALTER TABLE `rms_marks_setup`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `ums_discipline`
+--
+ALTER TABLE `ums_discipline`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `ums_permission`
+--
+ALTER TABLE `ums_permission`
+  ADD PRIMARY KEY (`TableID`);
+
+--
+-- Indexes for table `ums_position`
+--
+ALTER TABLE `ums_position`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `ums_role`
+--
+ALTER TABLE `ums_role`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `ums_role_permission`
+--
+ALTER TABLE `ums_role_permission`
+  ADD PRIMARY KEY (`Row`);
+
+--
+-- Indexes for table `ums_user`
+--
+ALTER TABLE `ums_user`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Email` (`Email`),
+  ADD UNIQUE KEY `UniversityID` (`UniversityID`);
+
+--
+-- Indexes for table `ums_user_details`
+--
+ALTER TABLE `ums_user_details`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `ums_user_position`
+--
+ALTER TABLE `ums_user_position`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `ums_user_role`
+--
+ALTER TABLE `ums_user_role`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `jms_applicant`
+--
+ALTER TABLE `jms_applicant`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `jms_cv`
+--
+ALTER TABLE `jms_cv`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `jms_cv_education`
+--
+ALTER TABLE `jms_cv_education`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `jms_cv_experience`
+--
+ALTER TABLE `jms_cv_experience`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `jms_cv_skills`
+--
+ALTER TABLE `jms_cv_skills`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `jms_job`
+--
+ALTER TABLE `jms_job`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ums_permission`
+--
+ALTER TABLE `ums_permission`
+  MODIFY `TableID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1817;
+
+--
+-- AUTO_INCREMENT for table `ums_role_permission`
+--
+ALTER TABLE `ums_role_permission`
+  MODIFY `Row` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2205;
+
+--
+-- AUTO_INCREMENT for table `ums_user_position`
+--
+ALTER TABLE `ums_user_position`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `ums_user_role`
+--
+ALTER TABLE `ums_user_role`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
